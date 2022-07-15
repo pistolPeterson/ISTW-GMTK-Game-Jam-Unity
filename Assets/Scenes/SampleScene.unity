@@ -290,9 +290,9 @@ MonoBehaviour:
   thornyBranches: 0
   vines: 0
   brokenBearTrap: 0
-  branchSpikeTrap: {fileID: 0}
-  harpoonTrap: {fileID: 0}
-  fixBearTrap: {fileID: 0}
+  branchSpikeTrap: {fileID: 4122498708498097863, guid: 7237f60ca37a2a949b2c537458f78d78, type: 3}
+  harpoonTrap: {fileID: 4356784428931718168, guid: f4146f114d2801c4bb488a43f4294f50, type: 3}
+  fixBearTrap: {fileID: 2728463909986291786, guid: 8e7f0e08bbe25cb44839bcc1107b1ed2, type: 3}
   itemWeight: 3
   ropeText: {fileID: 1870144655}
   vineText: {fileID: 617900059}
@@ -1294,7 +1294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611588323}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Harpoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2357,10 +2357,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 135.60323
-  m_PointLightOuterAngle: 135.60323
-  m_PointLightInnerRadius: 1.79
-  m_PointLightOuterRadius: 4.9
+  m_PointLightInnerAngle: 86.863266
+  m_PointLightOuterAngle: 98.92761
+  m_PointLightInnerRadius: 2.1
+  m_PointLightOuterRadius: 4.96
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -36888,7 +36888,7 @@ MonoBehaviour:
   timeDisplay: {fileID: 1019049141}
   dayDisplay: {fileID: 659752970}
   ppv: {fileID: 2108005335}
-  tick: 500000
+  tick: 400000
   seconds: 0
   mins: 0
   hours: 8
