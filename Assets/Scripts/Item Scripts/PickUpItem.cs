@@ -7,8 +7,19 @@ public class PickUpItem : MonoBehaviour
 
     [SerializeField] private ItemType type;
     [SerializeField] private int amt;
+    private float time;
 
-   
+    private void Update()
+    {
+        time += Time.deltaTime;
+
+        if(time > 60f)
+        {
+            Debug.Log("an item got deleted");
+            Destroy(gameObject); 
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name);

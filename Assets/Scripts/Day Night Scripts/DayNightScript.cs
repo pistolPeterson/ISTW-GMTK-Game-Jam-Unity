@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 using TMPro; // using text mesh for the clock display
 
@@ -21,7 +22,12 @@ public class DayNightScript : MonoBehaviour
     public bool activateLights; // checks if lights are on
     public GameObject[] lights; // all the lights we want on when its dark
     public GameObject sun;
-    public SpriteRenderer[] stars; // star sprites 
+     
+
+    public bool sunIsOn;
+
+    public static event Action beginDay;
+    public static event Action beginNight;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,10 +78,7 @@ public class DayNightScript : MonoBehaviour
         if (hours >= 21 && hours < 22) // dusk at 21:00 / 9pm    -   until 22:00 / 10pm
         {
             ppv.weight = (float)mins / 60; // since dusk is 1 hr, we just divide the mins by 60 which will slowly increase from 0 - 1 
-            for (int i = 0; i < stars.Length; i++)
-            {
-                stars[i].color = new Color(stars[i].color.r, stars[i].color.g, stars[i].color.b, (float)mins / 60); // change the alpha value of the stars so they become visible
-            }
+            sunIsOn = false;
 
             if (activateLights == false) // if lights havent been turned on
             {
@@ -95,14 +98,12 @@ public class DayNightScript : MonoBehaviour
         if (hours >= 6 && hours < 7) // Dawn at 6:00 / 6am    -   until 7:00 / 7am
         {
             ppv.weight = 1 - (float)mins / 60; // we minus 1 because we want it to go from 1 - 0
-            for (int i = 0; i < stars.Length; i++)
-            {
-                stars[i].color = new Color(stars[i].color.r, stars[i].color.g, stars[i].color.b, 1 - (float)mins / 60); // make stars invisible
-            }
+           
             if (activateLights == true) // if lights are on
             {
                 if (mins > 45) // wait until pretty bright
                 {
+                    sunIsOn = true;
                     for (int i = 0; i < lights.Length; i++)
                     {
                         sun.SetActive(true);
@@ -114,6 +115,15 @@ public class DayNightScript : MonoBehaviour
         }
     }
 
+    public void PostBeginNightEvent()
+    {
+        beginNight?.Invoke();
+    }
+
+    public void PostBeginDayEvent()
+    {
+        beginDay?.Invoke();
+    }
     public void DisplayTime() // Shows time and day in ui
     {
 

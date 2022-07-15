@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -16,7 +17,14 @@ public class Inventory : MonoBehaviour
     public GameObject fixBearTrap;
 
     [Header("this is how much it 'costs' to make each type of weapon")]
-    public int itemWeight; 
+    public int itemWeight;
+
+    [Header("The UI Text objcts")]
+    public TextMeshProUGUI ropeText;
+    public TextMeshProUGUI vineText;
+    public TextMeshProUGUI treeBranchText;
+    public TextMeshProUGUI brokenBearTrapText;
+
     //4 prefabs of the trap items 
 
     private void Start()
@@ -25,6 +33,11 @@ public class Inventory : MonoBehaviour
         thornyBranches = 0;
         brokenBearTrap = 0;
         vines = 0;
+
+        ropeText.text = "0x";
+        vineText.text = "0x";
+        treeBranchText.text = "0x";
+        brokenBearTrapText.text = "0x";
     }
 
     private void Update()
@@ -60,7 +73,11 @@ public class Inventory : MonoBehaviour
             vines -= itemWeight;
         }
 
-       
+        ropeText.text = ropes + "x";
+        vineText.text = vines +"x";
+        treeBranchText.text = thornyBranches +  "x";
+        brokenBearTrapText.text = brokenBearTrap+ "x";
+
     }
 
     public bool HasBranchSpikeTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
