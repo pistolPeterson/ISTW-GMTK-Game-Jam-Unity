@@ -20,10 +20,17 @@ public class DayNightScript : MonoBehaviour
 
     public bool activateLights; // checks if lights are on
     public GameObject[] lights; // all the lights we want on when its dark
+    public GameObject sun;
     public SpriteRenderer[] stars; // star sprites 
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < lights.Length; i++)
+        {
+            sun.SetActive(true);
+            lights[i].SetActive(false); // shut them off
+        }
+        activateLights = true;
         ppv = gameObject.GetComponent<Volume>();
     }
 
@@ -72,8 +79,9 @@ public class DayNightScript : MonoBehaviour
 
             if (activateLights == false) // if lights havent been turned on
             {
-                if (mins > 45) // wait until pretty dark
+                if (mins > 30) // wait until pretty dark
                 {
+                    sun.SetActive(false);
                     for (int i = 0; i < lights.Length; i++)
                     {
                         lights[i].SetActive(true); // turn them all on
@@ -97,6 +105,7 @@ public class DayNightScript : MonoBehaviour
                 {
                     for (int i = 0; i < lights.Length; i++)
                     {
+                        sun.SetActive(true);
                         lights[i].SetActive(false); // shut them off
                     }
                     activateLights = false;
