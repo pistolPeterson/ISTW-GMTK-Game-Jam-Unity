@@ -36,7 +36,7 @@ public class DayNightScript : MonoBehaviour
             sun.SetActive(true);
             lights[i].SetActive(false); // shut them off
         }
-        activateLights = true;
+        activateLights = false;
         ppv = gameObject.GetComponent<Volume>();
     }
 

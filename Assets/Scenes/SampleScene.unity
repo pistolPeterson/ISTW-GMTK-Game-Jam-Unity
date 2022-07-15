@@ -36888,7 +36888,7 @@ MonoBehaviour:
   timeDisplay: {fileID: 1019049141}
   dayDisplay: {fileID: 659752970}
   ppv: {fileID: 2108005335}
-  tick: 400000
+  tick: 10000
   seconds: 0
   mins: 0
   hours: 8
