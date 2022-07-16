@@ -79,11 +79,23 @@ public class Textbox : MonoBehaviour
 
         if (coroutine == null)
         {
+            if (dialogues.GetDialogueID() == 1)
+            {
+                //do the radio report thingy 
+                Debug.Log("doing the radio");
+            }
+
+            if (dialogues.GetDialogueID() == 2)
+            {
+                //do the wraith sound effect thingy
+                Debug.Log("doing the wraith sfx");
+            }
             GetComponent<Image>().rectTransform.localScale = new Vector3(1, 0, 1);
             gameObject.SetActive(true);
             coroutine = StartCoroutine(readDialogue(dialogues));
         }
         else {
+            
             nextDialogues.Add(dialogues);
         }
     }
@@ -107,7 +119,17 @@ public class Textbox : MonoBehaviour
         }
 
         List<Dialogue> dialogues = dia.Dialogues;
+        if (dia.GetDialogueID() == 1)
+        {
+            //do the radio report thingy 
+            Debug.Log("doing the radio");
+        }
 
+        if (dia.GetDialogueID() == 2)
+        {
+            //do the wraith sound effect thingy
+            Debug.Log("doing the wraith sfx");
+        }
         //Disable Player Movement
         FindObjectOfType<PlayerMovement>().FreezePlayer();
         //FindObjectOfType<PlayerState>()?.SetInteracting(true);

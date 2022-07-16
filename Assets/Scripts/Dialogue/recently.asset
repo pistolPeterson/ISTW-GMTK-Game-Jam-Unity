@@ -17,4 +17,8 @@ MonoBehaviour:
     line: recently, something has been destorying my garden late at night. Its footprints
       seem almost human. Strange part is, no human lives around  for miles. Really
       strange....
+  - profile: {fileID: 0}
+    line: It's only when I turn on the radio later tonight, that I find out whats
+      been going around my home.
   linkedSet: []
+  dialogueSetID: 0

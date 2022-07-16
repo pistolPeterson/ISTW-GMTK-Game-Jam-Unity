@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 828c47c4a50d62f4d8846a98e9506ad4, type: 3}
-  m_Name: Since Start
+  m_Name: ah shit
   m_EditorClassIdentifier: 
   dialogues:
   - profile: {fileID: 0}
-    line: ' old men would. Or, What I assumed most would.n the woods. Reconnecting
-      with nature in the way most old men would. Or, What I assumed most would.'
+    line: 'Ah shit '
+  - profile: {fileID: 0}
+    line: I'm too old for this.
   linkedSet: []
   dialogueSetID: 0

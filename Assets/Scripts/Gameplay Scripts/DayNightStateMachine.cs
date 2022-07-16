@@ -19,7 +19,7 @@ public class DayNightStateMachine : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(dayNightState);
+        //Debug.Log(dayNightState);
         switch (dayNightState)
         {
             case DayNightEnum.DAY:

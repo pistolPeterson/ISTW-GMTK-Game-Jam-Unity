@@ -36716,8 +36716,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imTooOld: {fileID: 11400000, guid: 7be34640dd720af41887b06e26f9cedb, type: 2}
   sinceStart: {fileID: 11400000, guid: 9cc1ec25a61bb7a4d9e997322974372d, type: 2}
-  warning: {fileID: 0}
-  state: 0
+  warning: {fileID: 11400000, guid: dc9f581cadf4275408fc3a2d1295dd51, type: 2}
+  howIknow: {fileID: 11400000, guid: 672fdb9fd3fb1a6409911b642079a3cd, type: 2}
+  ahShit: {fileID: 11400000, guid: 2738c3dc51abf664aa65cdecb1aa35a7, type: 2}
 --- !u!4 &1357832350
 Transform:
   m_ObjectHideFlags: 0

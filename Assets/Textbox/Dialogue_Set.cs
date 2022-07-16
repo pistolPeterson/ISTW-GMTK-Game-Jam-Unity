@@ -10,6 +10,19 @@ public class Dialogue_Set : ScriptableObject
     [SerializeField]
     private List<LinkSet> linkedSet = new List<LinkSet>();
 
+   [SerializeField] private int dialogueSetID = -999;
+
+
+    public void SetDialogueID(int id)
+    {
+        dialogueSetID = id;
+    }
+
+    public int GetDialogueID()
+    {
+        return dialogueSetID;
+    }
+
     public List<LinkSet> LinkedSet {
         get { return linkedSet; }
     }

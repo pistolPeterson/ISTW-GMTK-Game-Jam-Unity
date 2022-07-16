@@ -41,7 +41,7 @@ public class Flashlight : MonoBehaviour
 
         if (time > 0.5f)
         {
-            Debug.Log("inside timer? ");
+            //Debug.Log("inside timer? ");
             if (dnsm.GetDayNightState() == DayNightEnum.DAY)
             {
                 //Debug.Log("its day time my dudes " + flashlightPower);
