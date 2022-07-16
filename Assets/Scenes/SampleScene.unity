@@ -37935,7 +37935,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0.823
+  weight: 0.542
   sharedProfile: {fileID: 11400000, guid: 69779e5f1c9ff114498b886003d9efec, type: 2}
 --- !u!4 &2108005336
 Transform:
@@ -38009,11 +38009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750533156242966521, guid: c82a0f19aff650341beb07d559f92326, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.735
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1750533156242966521, guid: c82a0f19aff650341beb07d559f92326, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.83
+      value: -1.05
       objectReference: {fileID: 0}
     - target: {fileID: 1750533156242966521, guid: c82a0f19aff650341beb07d559f92326, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38066,7 +38066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3820194232897911396, guid: 0c83bda50bb0af84c8c3b118af940e59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.83
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3820194232897911396, guid: 0c83bda50bb0af84c8c3b118af940e59, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38176,11 +38176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5215599901945739886, guid: be2e6ab4ce16dbf43b9d33f0bf19d786, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.465
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 5215599901945739886, guid: be2e6ab4ce16dbf43b9d33f0bf19d786, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.83
+      value: 2.29
       objectReference: {fileID: 0}
     - target: {fileID: 5215599901945739886, guid: be2e6ab4ce16dbf43b9d33f0bf19d786, type: 3}
       propertyPath: m_LocalPosition.z

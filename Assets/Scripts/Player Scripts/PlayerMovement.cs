@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isFreeze) return;
         //movement
+        if(rb!= null)
         rb.MovePosition(rb.position + (movement * playerSpeed * Time.fixedDeltaTime));
 
         if (movement != Vector2.zero)
