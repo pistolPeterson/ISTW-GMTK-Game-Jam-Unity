@@ -46,6 +46,7 @@ public class Inventory : MonoBehaviour
         //place (instantiate) a bear trap
         if (Input.GetKeyDown(KeyCode.H) && HasBranchSpikeTrap())
         {
+            return;
             Debug.Log("gimme a Branch spike trap now");
             //spawn branch spike trap here
             Instantiate(branchSpikeTrap, this.gameObject.transform.position, Quaternion.identity);

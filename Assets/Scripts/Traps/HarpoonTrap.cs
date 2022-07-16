@@ -11,8 +11,12 @@ public class HarpoonTrap : MonoBehaviour
     private float time;
     private Vector3 arrowOriginalPos;
 
+    [SerializeField]private AudioSource audioSource;
+    [SerializeField] AudioClip arrowFired; 
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();  
         fired = false;
         time = 0;
         arrowOriginalPos = arrow.transform.position;
@@ -36,6 +40,7 @@ public class HarpoonTrap : MonoBehaviour
     //assumption arrow is already in harpoon 
     public void FireArrow()
     {
+        audioSource.PlayOneShot(arrowFired);
         fired = true;
         //take arrow, and just push it forward for x amount of seconds,
         //after x seconds passed, set active to false, and place it back in its original pos
