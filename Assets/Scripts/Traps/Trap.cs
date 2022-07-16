@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private AudioClip trapKill; 
+    [SerializeField] private AudioClip trapKill;
+    [SerializeField] private float timeUntilTrapDestroy; 
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +16,7 @@ public class Trap : MonoBehaviour
             //stop enemy moving 
             //send something to ui to alert player 
             Destroy(collision.gameObject, 0.33f);
-            Destroy(this.gameObject, 0.5f);
+            Destroy(this.gameObject, timeUntilTrapDestroy);
         }
     }
 }

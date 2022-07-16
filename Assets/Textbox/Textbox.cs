@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Textbox : MonoBehaviour
 {
     //reference to player movement
-    public PlayerMovement playerMovement;
+    public PlayerHealth playerMovement;
 
     public static Textbox T; //The one and only textbox for the scene
 

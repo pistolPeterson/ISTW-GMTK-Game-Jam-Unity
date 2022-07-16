@@ -19,8 +19,10 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private AudioClip toggleClip;
     [SerializeField] private AudioClip brokenLightClip;
     private AudioSource audioSource;
+    private PlayerHealth pm; 
     private void Start()
     {
+        pm = GetComponent<PlayerHealth>();
         audioSource = GetComponent<AudioSource>();
         flashlight.SetActive(false);
         isOn = false;
@@ -77,6 +79,8 @@ public class Flashlight : MonoBehaviour
 
     public void ToggleFlashlight()
     {
+        if (!pm.isAlive) return;
+
         isOn = !isOn;
         if (flashlightPower >= 00.01f)
             PlayToggleSound();

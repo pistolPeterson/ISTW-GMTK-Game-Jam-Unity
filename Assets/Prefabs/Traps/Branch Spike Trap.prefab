@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapKill: {fileID: 0}
+  timeUntilTrapDestroy: 0.25

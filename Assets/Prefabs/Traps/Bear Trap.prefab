@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapKill: {fileID: 0}
+  timeUntilTrapDestroy: 0.125
 --- !u!61 &2728463909986291789
 BoxCollider2D:
   m_ObjectHideFlags: 0

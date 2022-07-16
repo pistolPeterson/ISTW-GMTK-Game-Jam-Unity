@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        isFreeze = true;
+        isFreeze = false;
         rb = GetComponent<Rigidbody2D>(); 
     }
 
@@ -46,4 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isFreeze = false;
     }
+
+    public bool IsFreeze
+        { get { return isFreeze; } }
 }
