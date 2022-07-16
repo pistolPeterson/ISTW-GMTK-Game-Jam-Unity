@@ -14,8 +14,14 @@ public class Flashlight : MonoBehaviour
     private float time;
     private float flashLightRechargeRate;
     private DayNightStateMachine dnsm;
+
+    [Header("Audio Stuff")] 
+    [SerializeField] private AudioClip toggleClip;
+    [SerializeField] private AudioClip brokenLightClip;
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         flashlight.SetActive(false);
         isOn = false;
         time = 0;
@@ -72,6 +78,12 @@ public class Flashlight : MonoBehaviour
     public void ToggleFlashlight()
     {
         isOn = !isOn;
+        if (flashlightPower >= 00.01f)
+            PlayToggleSound();
+        else
+            PlayBrokeSound();
+
+
         flashlight.SetActive(isOn);
 
         if(isOn == true)
@@ -83,4 +95,24 @@ public class Flashlight : MonoBehaviour
             flashlightisOnText.text = "Flashlight is Off";
         }
     }
+
+    private void PlayToggleSound()
+    {
+        //randomize ssound
+        RandomizeSound();
+        audioSource.PlayOneShot(toggleClip);
+    }
+    private void PlayBrokeSound()
+    {
+        //randomize ssound
+        RandomizeSound();
+        audioSource.PlayOneShot(brokenLightClip);
+    }
+
+    private void RandomizeSound()
+    {
+        audioSource.volume = Random.Range(0.75f,0.9f ); 
+        audioSource.pitch = Random.Range(0.97f, 1.03f);
+    }
+
 }

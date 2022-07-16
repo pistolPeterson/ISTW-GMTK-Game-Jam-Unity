@@ -10,8 +10,8 @@ public class MusicMotor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeState = intialState;
-        activeState.StartPlaying();
+       // activeState = intialState;
+        //activeState.StartPlaying();
     }
 
     // Update is called once per frame
