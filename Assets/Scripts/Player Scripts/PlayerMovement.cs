@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(248f, 512f)] private float rotSpeed;
     private Rigidbody2D rb;
     private Vector2 movement;
-
+    private bool isFreeze;
 
     private void Start()
     {
+        isFreeze = true;
         rb = GetComponent<Rigidbody2D>(); 
     }
 
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isFreeze) return;
         //movement
         rb.MovePosition(rb.position + (movement * playerSpeed * Time.fixedDeltaTime));
 
@@ -32,5 +34,16 @@ public class PlayerMovement : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
         }
+    }
+
+
+    public void FreezePlayer()
+    {
+        isFreeze = true;
+    }
+
+    public void UnFreezePlayer()
+    {
+        isFreeze = false;
     }
 }
