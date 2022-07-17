@@ -18,7 +18,7 @@ public class BaseMonsterSpawner : MonoBehaviour
     private void Start()
     {
         time = 0;
-        isSpawning = true;
+        isSpawning = false;
     }
 
     private void Update()
@@ -44,14 +44,20 @@ public class BaseMonsterSpawner : MonoBehaviour
     private void ResetRound()
     {
         currentAmt = 0;
+        isSpawning = true;
         Debug.Log("night Time!"); 
         //extra logic here. 
     }
 
+    private void NoSpawn()
+    {
+        isSpawning=false;
+    }
     private void OnEnable()
     {
        
         DayNightScript.beginNight += ResetRound;
+        DayNightScript.beginDay += NoSpawn;
     }
 
     private void OnDisable()
@@ -59,6 +65,7 @@ public class BaseMonsterSpawner : MonoBehaviour
         //accomadate for "death". death = disbale 
       
         DayNightScript.beginNight -= ResetRound;
+        DayNightScript.beginDay -= NoSpawn;
     }
 
     void OnDrawGizmosSelected()

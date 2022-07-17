@@ -24,6 +24,7 @@ public class DeathAmbienceState : MusicState
     }
     public override void StartPlaying()
     {
+        Debug.Log("Now playing death ambue");
         AudioManager.Instance.PlayMusicFadeIn(clip, 2f);
     }
 

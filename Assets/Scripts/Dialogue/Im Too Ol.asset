@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - profile: {fileID: 0}
-    line: I'm just too for this...
+    line: I'm just too old for this...
   linkedSet: []
+  dialogueSetID: -999
