@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - profile: {fileID: 0}
-    line: ' old men would. Or, What I assumed most would.n the woods. Reconnecting
-      with nature in the way most old men would. Or, What I assumed most would.'
+    line: 'Since the start of my retirment, I lived in the woods. Reconnecting with
+      nature in the way most old men would. '
+  - profile: {fileID: 0}
+    line: 'Or, what I assumed most of them do. '
   linkedSet: []
   dialogueSetID: 0

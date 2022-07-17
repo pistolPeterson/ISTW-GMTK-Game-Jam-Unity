@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialMode : MonoBehaviour
 {
@@ -32,5 +33,19 @@ public class TutorialMode : MonoBehaviour
 
     }
 
+
+    public void StartGame()
+    {
+        //change music state?
+        StartCoroutine(FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DayMusicState>()));
+        StartCoroutine(LoadScene2());
+    }
+
+    public IEnumerator LoadScene2()
+    {
+
+        yield return new WaitForSeconds(3.5f);
+        SceneManager.LoadScene(2);
+    }
 
 }

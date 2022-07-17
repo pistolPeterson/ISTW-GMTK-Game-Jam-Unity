@@ -12,9 +12,9 @@ public class Textbox : MonoBehaviour
     //Sizes the font can be
     //When writing dialogues start with "_s" for smol text or "_l" for big text, anything else creates normal text.
     //these were originally 12 18 32 with arial
-    const int FONT_SIZE_SMALL = 6;
-    const int FONT_SIZE_NORMAL = 10;
-    const int FONT_SIZE_BIG = 15;
+    const int FONT_SIZE_SMALL = 12;
+    const int FONT_SIZE_NORMAL = 15;
+    const int FONT_SIZE_BIG = 21;
     [SerializeField]
     private Text text;
     [SerializeField]

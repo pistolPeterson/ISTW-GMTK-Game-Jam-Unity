@@ -33,6 +33,7 @@ public class DayNightScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sunIsOn = true;
         deathPanel.SetActive(false);
         for (int i = 0; i < lights.Length; i++)
         {
@@ -135,6 +136,10 @@ public class DayNightScript : MonoBehaviour
 
     public void PostBeginNightEvent()
     {
+        var musicMotor = FindObjectOfType<MusicMotor>();
+        if (musicMotor != null)
+            StartCoroutine(musicMotor.changeState(FindObjectOfType<NightMusicState>()));
+
         beginNight?.Invoke();
     }
 

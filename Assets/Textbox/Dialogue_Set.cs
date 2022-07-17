@@ -32,7 +32,7 @@ public class Dialogue_Set : ScriptableObject
         if (Textbox.T != null)
         {
             Textbox.T.read(this);
-            Debug.Log("Dialogue Sent to Textbox");
+           // Debug.Log("Dialogue Sent to Textbox");
         }
         else {
             Debug.Log("DialogueSet cannot be sent, no textbox active \nGame may not be running");

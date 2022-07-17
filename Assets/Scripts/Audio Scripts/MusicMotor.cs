@@ -10,8 +10,8 @@ public class MusicMotor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // activeState = intialState;
-        //activeState.StartPlaying();
+        activeState = intialState;
+        activeState.StartPlaying();
     }
 
     // Update is called once per frame
@@ -22,14 +22,15 @@ public class MusicMotor : MonoBehaviour
 
     public IEnumerator changeState(MusicState state)
     {
-        //Debug.Log(state.ToString());
         activeState.StopPlaying();
         //2-3 sec buffer wait time here 
-        yield return new WaitForSeconds(2);
+       
+        yield return new WaitForSeconds(2.5f);
         activeState = state;
+        Debug.Log("goodbye " + activeState.name);
         activeState.StartPlaying();
 
-
+      
     }
 
     public MusicState getActiveState()

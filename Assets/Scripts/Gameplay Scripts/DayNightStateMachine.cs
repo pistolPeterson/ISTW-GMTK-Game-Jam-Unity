@@ -5,7 +5,7 @@ using UnityEngine;
 public class DayNightStateMachine : MonoBehaviour
 {
     [SerializeField] private DayNightScript dayNight;
-    private DayNightEnum dayNightState;
+    [SerializeField] private DayNightEnum dayNightState;
 
 
     private void Start()

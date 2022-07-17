@@ -16,6 +16,6 @@ MonoBehaviour:
   - profile: {fileID: 0}
     line: 'Ah shit '
   - profile: {fileID: 0}
-    line: I'm too old for this.
+    line: I'm too old for this...
   linkedSet: []
-  dialogueSetID: 0
+  dialogueSetID: 2

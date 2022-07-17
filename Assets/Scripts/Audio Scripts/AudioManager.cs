@@ -48,7 +48,7 @@ public class AudioManager : MonoBehaviour
         // Create audio sources, and save them as references
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource2 = gameObject.AddComponent<AudioSource>();
-
+      
         // Make sure to enable loop on music sources
         musicSource.loop = true;
         musicSource2.loop = true;
@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
     public void PlayMusicFadeIn(AudioClip musicClip, float fadeInTime)
     {
         musicSource.clip = musicClip;
-        StartCoroutine(UpdateMusicWithFadingIn(musicSource, fadeInTime));
+        StartCoroutine(UpdateMusicWithFadingIn(musicSource, 1.0f));
     }
 
     private IEnumerator UpdateMusicWithFadingIn(AudioSource activeSource, float transitionTime)
@@ -94,7 +94,7 @@ public class AudioManager : MonoBehaviour
     {
         //fade out active audio source 
         //musicSource.clip = musicClip;
-        StartCoroutine(UpdateMusicWithFadingOut(musicSource, 2f));
+        StartCoroutine(UpdateMusicWithFadingOut(musicSource, 1f));
        
     }
 
@@ -111,7 +111,7 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-   
+        Debug.Log(activeSource.clip.name + " is the clip before stop");
         activeSource.Stop();
 
         // Make sure we don't end up with a weird float value
