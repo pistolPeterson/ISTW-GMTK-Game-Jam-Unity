@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MosterSpawnDice : MonoBehaviour
 {
@@ -11,16 +12,56 @@ public class MosterSpawnDice : MonoBehaviour
 
     [SerializeField] private float radius;
 
-
+    [SerializeField] private List<Sprite> dieSides;
+    [SerializeField] private Image dieImageHolder;
+    private int currentDieSide;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.G))
         {
-           
             int num = Random.Range(1, 7);
             StartCoroutine(specialSpawn(num));
         }
+
+
+
+
     }
+
+    //when night event is popped off 
+    //for 3 secs randomly go through all six sides of die 
+    //on the last one it stops on, thats when you call special spawn
+    //
+    public void StartDieSystem()
+    {
+        StartCoroutine(DieSystem());
+    }
+    public IEnumerator DieSystem()
+    {
+        Debug.Log("starting die system");
+        for (int i = 0; i < 5; i++)
+        {
+            var num = Random.Range(0, 5);
+            currentDieSide = num;
+            dieImageHolder.sprite = dieSides[num]; 
+           
+        }
+        yield return new WaitForSeconds(0.05f);
+        Debug.Log("starting special spawn " + (currentDieSide + 1));
+        StartCoroutine(specialSpawn(currentDieSide + 1));
+
+    }
+    private void OnEnable()
+    {
+        DayNightScript.beginNight += StartDieSystem;  
+    }
+
+    private void OnDisable()
+    {
+        DayNightScript.beginNight -= StartDieSystem;
+    }
+
+
 
     public IEnumerator specialSpawn(int amtToSpawn)
     {

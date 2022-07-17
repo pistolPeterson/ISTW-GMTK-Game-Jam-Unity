@@ -19,12 +19,10 @@ public class Inventory : MonoBehaviour
     [Header("this is how much it 'costs' to make each type of weapon")]
     public int itemWeight;
 
-    [Header("The UI Text objcts")]
-    public TextMeshProUGUI ropeText;
-    public TextMeshProUGUI vineText;
-    public TextMeshProUGUI treeBranchText;
-    public TextMeshProUGUI brokenBearTrapText;
-
+    [Header("The UI Text trap objrctss")]
+    public GameObject bearTrap;
+    public GameObject bowArrow;
+   
     //4 prefabs of the trap items 
 
     private void Start()
@@ -34,26 +32,23 @@ public class Inventory : MonoBehaviour
         brokenBearTrap = 0;
         vines = 0;
 
-        ropeText.text = "0x";
-        vineText.text = "0x";
-        treeBranchText.text = "0x";
-        brokenBearTrapText.text = "0x";
+        bearTrap.SetActive(false);
+        bowArrow.SetActive(false);
+      
     }
 
     private void Update()
     {
-        // if input && hasbranchspikeTrap 
-        //place (instantiate) a bear trap
-        if (Input.GetKeyDown(KeyCode.H) && HasBranchSpikeTrap())
-        {
-            return;
-            Debug.Log("gimme a Branch spike trap now");
-            //spawn branch spike trap here
-            Instantiate(branchSpikeTrap, this.gameObject.transform.position, Quaternion.identity);
-            thornyBranches-=itemWeight;
-            vines -= itemWeight;
-        }
 
+        if (HasFixedBearTrap())
+            bearTrap.SetActive(true);
+        else
+            bearTrap.SetActive(false) ;
+
+        if (HasHarpoonTrap())
+            bowArrow.SetActive(true);
+        else
+            bowArrow.SetActive(false);
 
         if (Input.GetKeyDown(KeyCode.J) && HasFixedBearTrap())
         {
@@ -69,15 +64,11 @@ public class Inventory : MonoBehaviour
             Debug.Log("gimme a harpoon trap now");
             //spawn branch spike trap here
             Instantiate(harpoonTrap, this.gameObject.transform.position, Quaternion.identity);
-            thornyBranches -= itemWeight;
             ropes -= itemWeight;
             vines -= itemWeight;
         }
 
-        ropeText.text = ropes + "x";
-        vineText.text = vines +"x";
-        treeBranchText.text = thornyBranches +  "x";
-        brokenBearTrapText.text = brokenBearTrap+ "x";
+      
 
     }
 
@@ -97,9 +88,8 @@ public class Inventory : MonoBehaviour
 
     public bool HasFixedBearTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
     {
-        if (thornyBranches < itemWeight)
-            return false;
-        if (ropes < 0)
+      
+        if (ropes < itemWeight)
             return false;
         if (vines < 0)
             return false;
@@ -111,8 +101,7 @@ public class Inventory : MonoBehaviour
 
     public bool HasHarpoonTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
     {
-        if (thornyBranches < itemWeight)
-            return false;
+           
         if (ropes < itemWeight)
             return false;
         if (vines < itemWeight)

@@ -15,7 +15,6 @@ public class PickUpItem : MonoBehaviour
 
         if(time > 60f)
         {
-            Debug.Log("an item got deleted");
             Destroy(gameObject); 
         }
     }

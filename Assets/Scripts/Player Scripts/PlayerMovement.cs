@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool isFreeze;
-
+    private Animator animator;
     private void Start()
     {
+        animator = GetComponent<Animator>();
         isFreeze = false;
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
+        animator.SetTrigger("stop Trigger");
     }
 
     private void Update()
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         //input 
        movement.x = Input.GetAxisRaw("Horizontal");
        movement.y = Input.GetAxisRaw("Vertical");
+       
     }
 
     private void FixedUpdate()
@@ -32,9 +35,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement != Vector2.zero)
         {
+            animator.SetTrigger("moveTrigger");
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
         }
+        else
+            animator.SetTrigger("stop Trigger");
+
     }
 
 

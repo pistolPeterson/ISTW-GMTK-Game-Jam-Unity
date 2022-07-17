@@ -54,7 +54,7 @@ public class Flashlight : MonoBehaviour
 
             if (flashlightPower > 0 && isOn)
             {
-                Debug.Log("We stay draining");
+                
                 flashlightPower -= (1.0f * flashlightDrainRate);
             }
 
