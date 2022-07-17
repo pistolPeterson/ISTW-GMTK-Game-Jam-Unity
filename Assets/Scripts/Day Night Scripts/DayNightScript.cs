@@ -22,8 +22,10 @@ public class DayNightScript : MonoBehaviour
     public bool activateLights; // checks if lights are on
     public GameObject[] lights; // all the lights we want on when its dark
     public GameObject sun;
-     
 
+    public GameObject deathPanel;
+    public TextMeshProUGUI daySurvivedText;
+    public TextMeshProUGUI enemiesKilledText;
     public bool sunIsOn;
 
     public static event Action beginDay;
@@ -31,6 +33,7 @@ public class DayNightScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        deathPanel.SetActive(false);
         for (int i = 0; i < lights.Length; i++)
         {
             sun.SetActive(true);
@@ -38,6 +41,21 @@ public class DayNightScript : MonoBehaviour
         }
         activateLights = false;
         ppv = gameObject.GetComponent<Volume>();
+    }
+    private void OnEnable()
+    {
+        PlayerHealth.OnDeath += OpenDeathPanel; 
+    }
+    private void OnDisable()
+    {
+        PlayerHealth.OnDeath -= OpenDeathPanel;
+    }
+
+    public void OpenDeathPanel()
+    {
+        deathPanel.SetActive(true);
+        daySurvivedText.text = "You survived " + days + " days.";
+        enemiesKilledText.text = FindObjectOfType<Inventory>().GetEnemiesKilled() + " Enemies have succumbed to your traps.";
     }
 
     // Update is called once per frame

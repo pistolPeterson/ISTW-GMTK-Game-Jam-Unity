@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int vines;
     [SerializeField] private int brokenBearTrap;
 
+    private int enemiesKilled = 0;
+
     [Header("the trap prefabs")]
     public GameObject branchSpikeTrap;
     public GameObject harpoonTrap;
@@ -25,8 +27,11 @@ public class Inventory : MonoBehaviour
    
     //4 prefabs of the trap items 
 
+    public void KillConfirmed() { enemiesKilled++; }   
+    public int GetEnemiesKilled() { return enemiesKilled; }
     private void Start()
     {
+        enemiesKilled = 0;
         ropes = 0;
         thornyBranches = 0;
         brokenBearTrap = 0;

@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Textbox : MonoBehaviour
 {
-    //reference to player movement
-    public PlayerHealth playerMovement;
+   
 
     public static Textbox T; //The one and only textbox for the scene
 
@@ -131,7 +130,7 @@ public class Textbox : MonoBehaviour
             Debug.Log("doing the wraith sfx");
         }
         //Disable Player Movement
-        FindObjectOfType<PlayerMovement>().FreezePlayer();
+        FindObjectOfType<PlayerMovement>()?.FreezePlayer();
         //FindObjectOfType<PlayerState>()?.SetInteracting(true);
 
         for (int d = 0; d < dialogues.Count; d++) {

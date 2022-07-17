@@ -20,7 +20,8 @@ public class Arrow : MonoBehaviour
         {
             if(currentPow > 0)
             {
-                Destroy(collision.gameObject, 0.25f);
+                FindObjectOfType<Inventory>().KillConfirmed();
+                Destroy(collision.gameObject, 0.15f);
                 currentPow--;
             }
             

@@ -141,13 +141,14 @@ GameObject:
   - component: {fileID: 74205720}
   - component: {fileID: 74205719}
   - component: {fileID: 74205721}
+  - component: {fileID: 74205722}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &74205712
 Transform:
   m_ObjectHideFlags: 0
@@ -288,7 +289,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74205711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150cc9f524fc9d049b58c47acb65eb68, type: 3}
   m_Name: 
@@ -301,10 +302,8 @@ MonoBehaviour:
   harpoonTrap: {fileID: 4356784428931718168, guid: f4146f114d2801c4bb488a43f4294f50, type: 3}
   fixBearTrap: {fileID: 2728463909986291786, guid: 8e7f0e08bbe25cb44839bcc1107b1ed2, type: 3}
   itemWeight: 3
-  ropeText: {fileID: 1870144655}
-  vineText: {fileID: 617900059}
-  treeBranchText: {fileID: 900730534}
-  brokenBearTrapText: {fileID: 1189331071}
+  bearTrap: {fileID: 0}
+  bowArrow: {fileID: 0}
 --- !u!114 &74205718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,13 +447,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74205711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b16be60a29296954a89c245c2c3952f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
   isAlive: 1
+  healthText: {fileID: 0}
+--- !u!95 &74205722
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74205711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &124934800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,25 +1048,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428218563}
   m_CullTransparentMesh: 1
---- !u!1 &459533477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6453908961094787728, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
-  m_PrefabInstance: {fileID: 960417548}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &459533482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459533477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca25ca4c899418a46abaf65a6b3849d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 0
-  rotSpeed: 0
 --- !u!1 &498678903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,6 +2412,54 @@ PrefabInstance:
       propertyPath: speed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3099058718573346861, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 74205721}
+    - target: {fileID: 3099058718573346862, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20392159
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058718573346862, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.g
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058718573346862, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.r
+      value: 0.14117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719459320431, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.b
+      value: 0.11764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719459320431, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.g
+      value: 0.06666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719459320431, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.r
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719644700348, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 76.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719644700349, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719644700349, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719644700349, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099058719644700349, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: cc63ebc1dfa7a854e9428428db4e62a3, type: 3}
     - target: {fileID: 6453908961094787728, guid: 5c93a0fb9990eaa4f820ea2dd555cf45, type: 3}
       propertyPath: m_Name
       value: Base Canvas  Pete
@@ -37523,6 +37572,9 @@ MonoBehaviour:
   - {fileID: 612872045}
   - {fileID: 337603314}
   sun: {fileID: 619394800}
+  deathPanel: {fileID: 0}
+  daySurvivedText: {fileID: 0}
+  enemiesKilledText: {fileID: 0}
   sunIsOn: 0
 --- !u!114 &2108005338
 MonoBehaviour:

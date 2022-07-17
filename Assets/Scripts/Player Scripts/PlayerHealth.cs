@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int health;
     public bool isAlive = true;
     public static event Action OnDeath;
+    [SerializeField] private TextMeshProUGUI healthText; 
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        healthText.text = "Health: " + health;
     }
     public virtual void TakeDamage(int dmg)
     {

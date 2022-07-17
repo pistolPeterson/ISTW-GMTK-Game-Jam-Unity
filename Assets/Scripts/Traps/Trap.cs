@@ -23,7 +23,8 @@ public class Trap : MonoBehaviour
             //trap sfx 
             //stop enemy moving 
             //send something to ui to alert player 
-            Destroy(collision.gameObject, 0.33f);
+            FindObjectOfType<Inventory>().KillConfirmed();
+            Destroy(collision.gameObject, 0.12f);
             Destroy(this.gameObject, timeUntilTrapDestroy);
         }
     }
