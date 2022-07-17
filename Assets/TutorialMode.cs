@@ -37,7 +37,7 @@ public class TutorialMode : MonoBehaviour
     public void StartGame()
     {
         //change music state?
-        StartCoroutine(FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DayMusicState>()));
+      //  StartCoroutine(FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DayMusicState>()));
         StartCoroutine(LoadScene2());
     }
 

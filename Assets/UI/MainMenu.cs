@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
 
-       StartCoroutine( FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DeathAmbienceState>()));
+       //StartCoroutine( FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DeathAmbienceState>()));
         StartCoroutine(LoadScene1());
     }
     public void StartTutorial()

@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Textbox : MonoBehaviour
 {
    
-
+    private AudioSource audioSource;
+    public AudioClip radio;
+    public AudioClip spookyNoises;
     public static Textbox T; //The one and only textbox for the scene
 
     //Sizes the font can be
@@ -51,7 +53,7 @@ public class Textbox : MonoBehaviour
         else {
             Destroy(gameObject);
         }
-
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -122,12 +124,14 @@ public class Textbox : MonoBehaviour
         {
             //do the radio report thingy 
             Debug.Log("doing the radio");
+            audioSource.PlayOneShot(radio);
         }
 
         if (dia.GetDialogueID() == 2)
         {
             //do the wraith sound effect thingy
             Debug.Log("doing the wraith sfx");
+            audioSource.PlayOneShot(spookyNoises);
         }
         //Disable Player Movement
         FindObjectOfType<PlayerMovement>()?.FreezePlayer();
