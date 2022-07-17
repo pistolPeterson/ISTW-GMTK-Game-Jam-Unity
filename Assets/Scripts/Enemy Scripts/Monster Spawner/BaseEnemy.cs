@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -30,7 +31,10 @@ public class BaseEnemy : MonoBehaviour
     private GameObject[] fakeTargets;
     private GameObject oneFakeTarget;
 
-    public static event Action OnEnemyAttck; 
+    public static event Action OnEnemyAttck;
+
+   [SerializeField]private AudioSource audioSource;
+    public AudioClip[] attackClips;
    
     // Start is called before the first frame update
     void Start()
@@ -90,7 +94,7 @@ public class BaseEnemy : MonoBehaviour
             rb.velocity = Vector2.zero;
             if(time > ((1/enemySO.attackSpeed) * 5))
             {
-               
+                audioSource.PlayOneShot(attackClips[Random.Range(0, attackClips.Length)]);
                 OnEnemyAttck?.Invoke();
                 FindObjectOfType<PlayerHealth>().TakeDamage(damage);            
                 time = 0;

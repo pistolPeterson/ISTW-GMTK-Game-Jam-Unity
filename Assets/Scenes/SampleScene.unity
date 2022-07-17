@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 1092728318}
-  flashlightDrainRate: 3.87
+  flashlightDrainRate: 2.56
   flashlightText: {fileID: 743348119}
   flashlightisOnText: {fileID: 1685277646}
   toggleClip: {fileID: 8300000, guid: 89efa560b8f1411409e6b096eb840fec, type: 3}
@@ -2795,7 +2795,7 @@ MonoBehaviour:
   - {fileID: 1750533156242966520, guid: c82a0f19aff650341beb07d559f92326, type: 3}
   - {fileID: 3820194232897911416, guid: 0c83bda50bb0af84c8c3b118af940e59, type: 3}
   - {fileID: 1750533156242966520, guid: c82a0f19aff650341beb07d559f92326, type: 3}
-  secondsPerSpawn: 5
+  secondsPerSpawn: 7
 --- !u!1 &930310926
 GameObject:
   m_ObjectHideFlags: 0
@@ -39229,7 +39229,7 @@ MonoBehaviour:
   timeDisplay: {fileID: 1019049141}
   dayDisplay: {fileID: 659752970}
   ppv: {fileID: 2108005335}
-  tick: 1250
+  tick: 750
   seconds: 0
   mins: 0
   hours: 8
