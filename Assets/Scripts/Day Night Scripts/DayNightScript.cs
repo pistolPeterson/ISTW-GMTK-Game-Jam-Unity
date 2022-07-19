@@ -6,14 +6,16 @@ using System;
 using TMPro; // using text mesh for the clock display
 
 using UnityEngine.Rendering; // used to access the volume component
-
+/// <summary>
+/// The script that creates the day/night cycle of the game.  Increasing the ticks, will increase second rate.
+/// </summary>
 public class DayNightScript : MonoBehaviour
 {
     public TextMeshProUGUI timeDisplay; // Display Time
     public TextMeshProUGUI dayDisplay; // Display Day
     public Volume ppv; // this is the post processing volume
 
-    public float tick; // Increasing the tick, increases second rate
+    public float tick; 
     public float seconds;
     public int mins;
     public int hours;
@@ -23,18 +25,17 @@ public class DayNightScript : MonoBehaviour
     public GameObject[] lights; // all the lights we want on when its dark
     public GameObject sun;
 
-    public GameObject deathPanel;
-    public TextMeshProUGUI daySurvivedText;
-    public TextMeshProUGUI enemiesKilledText;
+   
     public bool sunIsOn;
 
-    public static event Action beginDay;
+    public static event Action beginDay; //Actions are "triggers" that pop off when its day or night. this makes it easy for other scripts to "listen" to them and change accordingly
     public static event Action beginNight;
+
     // Start is called before the first frame update
     void Start()
     {
         sunIsOn = true;
-        deathPanel.SetActive(false);
+       
         for (int i = 0; i < lights.Length; i++)
         {
             sun.SetActive(true);
@@ -43,21 +44,8 @@ public class DayNightScript : MonoBehaviour
         activateLights = false;
         ppv = gameObject.GetComponent<Volume>();
     }
-    private void OnEnable()
-    {
-        PlayerHealth.OnDeath += OpenDeathPanel; 
-    }
-    private void OnDisable()
-    {
-        PlayerHealth.OnDeath -= OpenDeathPanel;
-    }
-
-    public void OpenDeathPanel()
-    {
-        deathPanel.SetActive(true);
-        daySurvivedText.text = "You survived " + days + " days.";
-        enemiesKilledText.text = FindObjectOfType<Inventory>().GetEnemiesKilled() + " Enemies have succumbed to your traps.";
-    }
+    
+ 
 
     // Update is called once per frame
     void FixedUpdate() // we used fixed update, since update is frame dependant. 

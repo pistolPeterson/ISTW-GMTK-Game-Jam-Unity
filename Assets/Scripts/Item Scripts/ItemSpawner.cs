@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spawns random items inside the circle. Will be refactored to account for more immersive/realistic spawning tendecies 
+/// </summary>
 public class ItemSpawner : MonoBehaviour
 {
 

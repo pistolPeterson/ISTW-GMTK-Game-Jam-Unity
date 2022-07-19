@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// The monsters spawn every certain amount of seconds in a radius. Our current concept is that every night, the spawner will spawn more and more enemies 
+/// </summary>
 public class BaseMonsterSpawner : MonoBehaviour
 {
     [SerializeField] private float radius;
@@ -31,9 +35,9 @@ public class BaseMonsterSpawner : MonoBehaviour
         {
             var location = new Vector3(transform.position.x, transform.position.y, 0);
 
-           var go= Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], location + (Vector3)Random.insideUnitCircle.normalized * radius, Quaternion.identity);
+            var go = Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], location + (Vector3)Random.insideUnitCircle.normalized * radius, Quaternion.identity);
             go.transform.parent = transform;
-            time =0;
+            time = 0;
             currentAmt++;
         }
        
@@ -45,7 +49,7 @@ public class BaseMonsterSpawner : MonoBehaviour
     {
         currentAmt = 0;
         isSpawning = true;
-        Debug.Log("night Time!"); 
+        maxPerRound++;
         //extra logic here. 
     }
 

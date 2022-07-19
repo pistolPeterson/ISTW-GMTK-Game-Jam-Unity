@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
-
+/// <summary>
+/// The base single instance of what is an enemy in terms of logic, will have extendable methods so other enemy AI's can be used on top of it 
+/// </summary>
 public class BaseEnemy : MonoBehaviour
 {
     private Transform playerLocation;
@@ -24,7 +26,7 @@ public class BaseEnemy : MonoBehaviour
 
     private float time; 
 
-    public EnemySO enemySO;
+    public EnemySO enemySO;//The scriptable object that makes it easier to change values later on
 
     public int damage;
 
@@ -33,7 +35,7 @@ public class BaseEnemy : MonoBehaviour
 
     public static event Action OnEnemyAttck;
 
-   [SerializeField]private AudioSource audioSource;
+    [SerializeField]private AudioSource audioSource;
     public AudioClip[] attackClips;
    
     // Start is called before the first frame update
@@ -103,8 +105,7 @@ public class BaseEnemy : MonoBehaviour
         }
 
         if (!isInChaseRange && !isInAttackRange)
-        {
-          
+        {        
             MoveCharacterSlow(fakeMovement);
             time = 0;
         }
