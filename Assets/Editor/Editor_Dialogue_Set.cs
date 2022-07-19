@@ -35,6 +35,11 @@ public class Editor_Dialogue_Set : Editor
 
         }
 
+        //some tyoe oof field script for audio clip? 
+
+        //potential for Unity Event, that is invoked here? kinda like unity buttons 
+
+
         EditorGUILayout.LabelField(" - Add a dialogue to the start of this set -");
         if (GUILayout.Button("Add Dialogue (Start)"))
         {
@@ -46,7 +51,7 @@ public class Editor_Dialogue_Set : Editor
 
         //Change List Size
         size = ds.Dialogues.Count;
-        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();//wh
         d = EditorGUILayout.Foldout(d, "Dialogues - Size : " + size);
 
         //size = EditorGUILayout.IntField("Size", size);
@@ -64,7 +69,6 @@ public class Editor_Dialogue_Set : Editor
                 EditorGUI.BeginChangeCheck();
                 Sprite newSprite = (Sprite)EditorGUILayout.ObjectField("Profile", ds.Dialogues[i].Profile, typeof(Sprite), false);
                 string newLine = EditorGUILayout.TextField("Line", ds.Dialogues[i].Line);
-
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(ds, "Change Dialogue");
@@ -92,7 +96,7 @@ public class Editor_Dialogue_Set : Editor
             EditorGUI.indentLevel--;
         }
 
-        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();//what does this do?
 
         EditorGUILayout.LabelField(" - Add a dialogue to the end of this set -");
         if (GUILayout.Button("Add Dialogue (End)"))
