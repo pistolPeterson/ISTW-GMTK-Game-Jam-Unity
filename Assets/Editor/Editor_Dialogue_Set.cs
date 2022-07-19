@@ -35,9 +35,7 @@ public class Editor_Dialogue_Set : Editor
 
         }
 
-        //some tyoe oof field script for audio clip? 
-
-        //potential for Unity Event, that is invoked here? kinda like unity buttons 
+       
 
 
         EditorGUILayout.LabelField(" - Add a dialogue to the start of this set -");
@@ -48,6 +46,15 @@ public class Editor_Dialogue_Set : Editor
             EditorUtility.SetDirty(ds);
         }
 
+        EditorGUILayout.LabelField("SFX Clip ");
+        EditorGUI.BeginChangeCheck();
+        AudioClip dialogueSFXClip = (AudioClip)EditorGUILayout.ObjectField("dialogueSetSFXClip", ds.dialogueSetSFXClip, typeof(AudioClip), false);
+        if(EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(ds, "Change SFX");
+            ds.dialogueSetSFXClip = dialogueSFXClip;
+            EditorUtility.SetDirty(ds);
+        }
 
         //Change List Size
         size = ds.Dialogues.Count;
@@ -96,7 +103,7 @@ public class Editor_Dialogue_Set : Editor
             EditorGUI.indentLevel--;
         }
 
-        EditorGUILayout.Separator();//what does this do?
+        EditorGUILayout.Separator();
 
         EditorGUILayout.LabelField(" - Add a dialogue to the end of this set -");
         if (GUILayout.Button("Add Dialogue (End)"))

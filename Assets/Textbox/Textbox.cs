@@ -116,19 +116,7 @@ public class Textbox : MonoBehaviour
         }
 
         List<Dialogue> dialogues = dia.Dialogues;
-        if (dia.GetDialogueID() == 1)
-        {
-            //do the radio report thingy 
-            Debug.Log("doing the radio");
-            audioSource.PlayOneShot(radio);
-        }
-
-        if (dia.GetDialogueID() == 2)
-        {
-            //do the wraith sound effect thingy
-            Debug.Log("doing the wraith sfx");
-            audioSource.PlayOneShot(spookyNoises);
-        }
+       
         //Disable Player Movement
         FindObjectOfType<PlayerMovement>()?.FreezePlayer();
         //FindObjectOfType<PlayerState>()?.SetInteracting(true);

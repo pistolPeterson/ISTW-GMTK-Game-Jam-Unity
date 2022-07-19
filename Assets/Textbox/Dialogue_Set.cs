@@ -12,17 +12,10 @@ public class Dialogue_Set : ScriptableObject
 
     [SerializeField] private int dialogueSetID = -999;
 
-    public AudioClip dialogueSetSFXClip; 
+    public AudioClip dialogueSetSFXClip;
+   
 
-    public void SetDialogueID(int id)
-    {
-        dialogueSetID = id;
-    }
-
-    public int GetDialogueID()
-    {
-        return dialogueSetID;
-    }
+  
 
     public List<LinkSet> LinkedSet {
         get { return linkedSet; }
