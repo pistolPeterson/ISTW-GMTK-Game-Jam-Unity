@@ -7,6 +7,7 @@ public class Textbox : MonoBehaviour
 {
    
     private AudioSource audioSource;
+    private AudioSource _audioSource;
     public AudioClip radio;
     public AudioClip spookyNoises;
     public static Textbox T; //The one and only textbox for the scene
@@ -49,6 +50,11 @@ public class Textbox : MonoBehaviour
         {
             T = this;
             gameObject.SetActive(false);
+            //Add in the audiosource
+            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.loop = false;
+            _audioSource.playOnAwake = false;
+            
         }
         else {
             Destroy(gameObject);
@@ -80,17 +86,7 @@ public class Textbox : MonoBehaviour
 
         if (coroutine == null)
         {
-            if (dialogues.GetDialogueID() == 1)
-            {
-                //do the radio report thingy 
-                Debug.Log("doing the radio");
-            }
-
-            if (dialogues.GetDialogueID() == 2)
-            {
-                //do the wraith sound effect thingy
-                Debug.Log("doing the wraith sfx");
-            }
+           
             GetComponent<Image>().rectTransform.localScale = new Vector3(1, 0, 1);
             gameObject.SetActive(true);
             coroutine = StartCoroutine(readDialogue(dialogues));
@@ -120,22 +116,21 @@ public class Textbox : MonoBehaviour
         }
 
         List<Dialogue> dialogues = dia.Dialogues;
-        if (dia.GetDialogueID() == 1)
-        {
-            //do the radio report thingy 
-            Debug.Log("doing the radio");
-            audioSource.PlayOneShot(radio);
-        }
-
-        if (dia.GetDialogueID() == 2)
-        {
-            //do the wraith sound effect thingy
-            Debug.Log("doing the wraith sfx");
-            audioSource.PlayOneShot(spookyNoises);
-        }
+       
         //Disable Player Movement
         FindObjectOfType<PlayerMovement>()?.FreezePlayer();
         //FindObjectOfType<PlayerState>()?.SetInteracting(true);
+
+
+        //this is for playing at the beginning of the dialogue set
+        //possibility to make it play line by line 
+        if(dia.dialogueSetSFXClip != null)
+        {
+            //stop any current dialogue speech in the textbox 
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(dia.dialogueSetSFXClip); 
+        }
+
 
         for (int d = 0; d < dialogues.Count; d++) {
 

@@ -35,6 +35,9 @@ public class Editor_Dialogue_Set : Editor
 
         }
 
+       
+
+
         EditorGUILayout.LabelField(" - Add a dialogue to the start of this set -");
         if (GUILayout.Button("Add Dialogue (Start)"))
         {
@@ -43,10 +46,19 @@ public class Editor_Dialogue_Set : Editor
             EditorUtility.SetDirty(ds);
         }
 
+        EditorGUILayout.LabelField("SFX Clip ");
+        EditorGUI.BeginChangeCheck();
+        AudioClip dialogueSFXClip = (AudioClip)EditorGUILayout.ObjectField("dialogueSetSFXClip", ds.dialogueSetSFXClip, typeof(AudioClip), false);
+        if(EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(ds, "Change SFX");
+            ds.dialogueSetSFXClip = dialogueSFXClip;
+            EditorUtility.SetDirty(ds);
+        }
 
         //Change List Size
         size = ds.Dialogues.Count;
-        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();//wh
         d = EditorGUILayout.Foldout(d, "Dialogues - Size : " + size);
 
         //size = EditorGUILayout.IntField("Size", size);
@@ -64,7 +76,6 @@ public class Editor_Dialogue_Set : Editor
                 EditorGUI.BeginChangeCheck();
                 Sprite newSprite = (Sprite)EditorGUILayout.ObjectField("Profile", ds.Dialogues[i].Profile, typeof(Sprite), false);
                 string newLine = EditorGUILayout.TextField("Line", ds.Dialogues[i].Line);
-
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(ds, "Change Dialogue");

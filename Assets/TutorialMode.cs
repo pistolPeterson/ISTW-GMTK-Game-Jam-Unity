@@ -13,9 +13,6 @@ public class TutorialMode : MonoBehaviour
 
     private void Start()
     {
-        warning.SetDialogueID(1);
-        ahShit.SetDialogueID(2);
-
         imTooOld?.sendDialogue();
         sinceStart?.sendDialogue();
         warning?.sendDialogue();
@@ -25,19 +22,13 @@ public class TutorialMode : MonoBehaviour
     private void Update()
     {
 
-
-
-
-
-
-
     }
 
 
     public void StartGame()
     {
         //change music state?
-      //  StartCoroutine(FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DayMusicState>()));
+        //StartCoroutine(FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DayMusicState>()));
         StartCoroutine(LoadScene2());
     }
 
