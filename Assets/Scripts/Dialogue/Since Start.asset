@@ -20,3 +20,4 @@ MonoBehaviour:
     line: 'Or, what I assumed most of them do. '
   linkedSet: []
   dialogueSetID: 0
+  dialogueSetSFXClip: {fileID: 0}

@@ -19,3 +19,4 @@ MonoBehaviour:
     line: I'm too old for this...
   linkedSet: []
   dialogueSetID: 2
+  dialogueSetSFXClip: {fileID: 8300000, guid: 1ebc5ec0ca235d94fabd16d93d0725c6, type: 3}

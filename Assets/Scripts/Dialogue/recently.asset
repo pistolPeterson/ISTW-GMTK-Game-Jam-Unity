@@ -21,4 +21,5 @@ MonoBehaviour:
     line: It's only when I turn on the radio later tonight, that I find out whats
       been going around my home.
   linkedSet: []
-  dialogueSetID: 0
+  dialogueSetID: 1
+  dialogueSetSFXClip: {fileID: 8300000, guid: c5985e2cf747a7b4c8d8257242b0089a, type: 3}

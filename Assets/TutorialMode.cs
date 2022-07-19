@@ -34,7 +34,6 @@ public class TutorialMode : MonoBehaviour
 
     public IEnumerator LoadScene2()
     {
-
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(2);
     }
