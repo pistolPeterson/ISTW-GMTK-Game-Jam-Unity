@@ -6,9 +6,8 @@ using TMPro;
 using UnityEngine.UI;
 
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : Health
 {
-    [SerializeField] private int health;
     public bool isAlive = true;
     public static event Action OnDeath;
     [SerializeField] private TextMeshProUGUI healthText;
@@ -18,8 +17,9 @@ public class PlayerHealth : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         UpdateHealth();
     }
 
@@ -32,31 +32,32 @@ public class PlayerHealth : MonoBehaviour
     private void UpdateHealth()
     {
         Color splatterAlpha = redSplatterImage.color;
-        splatterAlpha.a = 1 - ((float)health / 100);
+        splatterAlpha.a = 1 - ((float)health / maxHealth);
         redSplatterImage.color = splatterAlpha; 
-
-
     }
-    public virtual void TakeDamage(int dmg)
+    public override void TakeDamage(int dmg)
     {
         if (!isAlive) return;
-
+        
         health -= dmg;
+
         UpdateHealth();
+
         if (health <= 0)
         {
-            health = 0;
-            OnDeath?.Invoke();
-            isAlive = false;
-            FindObjectOfType<PlayerMovement>().FreezePlayer();
-            //show death animation, stop player from moving, show stats with button to restart            
+            Die();        
         }
     }
 
-   
-
-    public int GetHealth()
+    public override void Die()
     {
-        return health;
+        //show death animation, stop player from moving, show stats with button to restart          
+        health = 0;
+        OnDeath?.Invoke();
+        isAlive = false;
+        FindObjectOfType<PlayerMovement>().FreezePlayer();
     }
+
+    
+    
 }

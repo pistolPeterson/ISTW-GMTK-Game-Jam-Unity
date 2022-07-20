@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
 
         AudioMixer mixer = Resources.Load("Master") as AudioMixer;
 
-        string _OutputMixer = "Music";
+      
         
         musicSource.outputAudioMixerGroup = outputAudioMixerGroup;
     }
@@ -111,7 +111,6 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log(activeSource.clip.name + " is the clip before stop");
         activeSource.Stop();
 
         // Make sure we don't end up with a weird float value

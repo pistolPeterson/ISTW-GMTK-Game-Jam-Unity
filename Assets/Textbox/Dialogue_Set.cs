@@ -10,7 +10,7 @@ public class Dialogue_Set : ScriptableObject
     [SerializeField]
     private List<LinkSet> linkedSet = new List<LinkSet>();
 
-    [SerializeField] private int dialogueSetID = -999;
+ 
 
     public AudioClip dialogueSetSFXClip;
    

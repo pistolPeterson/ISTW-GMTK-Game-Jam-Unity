@@ -2,43 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Flashlight : MonoBehaviour
 {
     [SerializeField] private GameObject flashlight;
     [SerializeField] [Range(1.01f, 10.01f)] private float flashlightDrainRate;
     [SerializeField] TextMeshProUGUI flashlightText;
-    [SerializeField] TextMeshProUGUI flashlightisOnText;
+    [SerializeField] private Image flashlightImgHolder;
+    [SerializeField] private Sprite flashOn;
+    [SerializeField] private Sprite flashOff;
     private bool isOn;
     private float flashlightPower = 100;
     private float time;
     private float flashLightRechargeRate;
-    private DayNightStateMachine dnsm;
+   
 
     [Header("Audio Stuff")] 
     [SerializeField] private AudioClip toggleClip;
     [SerializeField] private AudioClip brokenLightClip;
     private AudioSource audioSource;
+
+    private DayNightStateMachine dnsm;
     private PlayerHealth pm; 
     private void Start()
     {
-        pm = GetComponent<PlayerHealth>();
-        audioSource = GetComponent<AudioSource>();
+        flashlightImgHolder.sprite = flashOff;
+         audioSource = GetComponent<AudioSource>();
         flashlight.SetActive(false);
         isOn = false;
         time = 0;
         flashlightPower = 100;
         flashLightRechargeRate = flashlightDrainRate / 2;
         dnsm = FindObjectOfType<DayNightStateMachine>();
+        pm = GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
         time += Time.deltaTime;
-
-
-
-
         if (time > 0.5f)
         {
             //Debug.Log("inside timer? ");
@@ -61,13 +63,15 @@ public class Flashlight : MonoBehaviour
 
             time = 0;
         }
+
+
         flashlightText.text = "FlashLight Power: " + flashlightPower + "% ";
 
         if (flashlightPower <= 0)
         {
             flashlight.SetActive(false);
             flashlightText.text = "FlashLight Power: 0% ";
-            flashlightisOnText.text = "Flashlight is Off";
+            flashlightImgHolder.sprite = flashOff;
         }
        
 
@@ -92,11 +96,11 @@ public class Flashlight : MonoBehaviour
 
         if(isOn == true)
         {
-            flashlightisOnText.text = "Flashlight is On"; 
+            flashlightImgHolder.sprite = flashOn;
         }
         else
         {
-            flashlightisOnText.text = "Flashlight is Off";
+            flashlightImgHolder.sprite = flashOff;
         }
     }
 
