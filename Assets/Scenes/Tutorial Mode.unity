@@ -319,7 +319,9 @@ MonoBehaviour:
   flashlight: {fileID: 1092728318}
   flashlightDrainRate: 5.84
   flashlightText: {fileID: 743348119}
-  flashlightisOnText: {fileID: 1685277646}
+  flashlightImgHolder: {fileID: 0}
+  flashOn: {fileID: 0}
+  flashOff: {fileID: 0}
   toggleClip: {fileID: 8300000, guid: 89efa560b8f1411409e6b096eb840fec, type: 3}
   brokenLightClip: {fileID: 8300000, guid: 4685b1dc2a51f8d44b0b79ff7d13de3a, type: 3}
 --- !u!82 &74205719
@@ -452,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16be60a29296954a89c245c2c3952f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 0
   isAlive: 1
   healthText: {fileID: 0}
   redSplatterImage: {fileID: 0}
@@ -1174,6 +1176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeResetScene: 2.5
   resetButton: {fileID: 806044235}
+  deathPanel: {fileID: 0}
+  daySurvivedText: {fileID: 0}
+  enemiesKilledText: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,9 +1189,9 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1194,14 +1199,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,6 +1305,19 @@ MonoBehaviour:
   target: {fileID: 74205712}
   smoothSpeed: 0.837
   offset: {x: 0, y: 0, z: -10}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &519699641
 GameObject:
   m_ObjectHideFlags: 0
@@ -38092,9 +38102,6 @@ MonoBehaviour:
   - {fileID: 612872045}
   - {fileID: 337603314}
   sun: {fileID: 619394800}
-  deathPanel: {fileID: 0}
-  daySurvivedText: {fileID: 0}
-  enemiesKilledText: {fileID: 0}
   sunIsOn: 0
 --- !u!114 &2108005338
 MonoBehaviour:
