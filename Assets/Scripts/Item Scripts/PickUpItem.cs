@@ -38,5 +38,6 @@ public enum ItemType
     THORNY_BRANCH,
     BROKEN_BEAR_TRAP,
     ROPE,
-    VINE
+    VINE, 
+    WINE_GLASS
 }

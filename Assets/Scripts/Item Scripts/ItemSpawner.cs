@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Spawns random items inside the circle. Will be refactored to account for more immersive/realistic spawning tendecies 
+/// The generic item spawner class. you would inherit it from another spawner class so you can customize the spawn system for it
 /// </summary>
 public class ItemSpawner : MonoBehaviour
 {
 
-    [SerializeField] private float radius;
-    [SerializeField] private GameObject[] itemPrefabs;
-    [SerializeField] private int secondsPerSpawn = 1;
-
+    [SerializeField] protected GameObject itemPrefab;
+    [SerializeField] [Range(0.1f, 10.0f)] protected float secondsPerSpawn = 1;
+    [SerializeField] protected float radius = 2f;
     private float time;
 
 
@@ -28,20 +27,18 @@ public class ItemSpawner : MonoBehaviour
 
         if (time > secondsPerSpawn)
         {
-            var go = Instantiate(itemPrefabs[Random.Range(0, itemPrefabs.Length)], Random.insideUnitCircle * radius, Quaternion.identity);
-            go.transform.parent = transform;
-            time = 0;
-
+           SpawnItem();
+           time = 0;
         }
     }
 
 
-    void OnDrawGizmosSelected()
+    public virtual void SpawnItem()
     {
-        // Draw a yellow sphere at the transform's position
-        Color col = new Color(1.5f, 1.6f, 0.5f, 0.33f);
-        Gizmos.color = col;
-
-        Gizmos.DrawSphere(transform.position, radius);
+        var go = Instantiate(itemPrefab, Random.insideUnitCircle * radius, Quaternion.identity);
+        go.transform.parent = transform;
     }
+
+
+   
 }
