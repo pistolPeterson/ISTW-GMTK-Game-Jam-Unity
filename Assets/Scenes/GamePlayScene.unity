@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 74205719}
   - component: {fileID: 74205721}
   - component: {fileID: 74205722}
+  - component: {fileID: 74205723}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -255,7 +256,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &74205716
 BoxCollider2D:
@@ -479,6 +480,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &74205723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74205711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556e92f8fd1e60941a1734ee45249777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &182240264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 720457541747884369, guid: 97afe4fa0ff5e6d47a26c5bbb60ecf93, type: 3}
-  secondsPerSpawn: 5.81
+  secondsPerSpawn: 2.45
   radius: 2
 --- !u!1 &659752968
 GameObject:
@@ -69115,9 +69128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2b2e2d9535a2441a7df5e05d2468eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
-  radius: 2
-  debugColor: {r: 0.3915094, g: 0.82655245, b: 1, a: 0.56078434}
 --- !u!4 &1328317551
 Transform:
   m_ObjectHideFlags: 0
@@ -69162,9 +69172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2b2e2d9535a2441a7df5e05d2468eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
-  radius: 2
-  debugColor: {r: 0.3915094, g: 0.82655245, b: 1, a: 0.56078434}
 --- !u!4 &1470043751
 Transform:
   m_ObjectHideFlags: 0
@@ -69271,9 +69278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2b2e2d9535a2441a7df5e05d2468eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
-  radius: 2
-  debugColor: {r: 0.3915094, g: 0.82655245, b: 1, a: 0.56078434}
 --- !u!4 &1533345382
 Transform:
   m_ObjectHideFlags: 0
@@ -70100,9 +70104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2b2e2d9535a2441a7df5e05d2468eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
-  radius: 2
-  debugColor: {r: 0.3915094, g: 0.82655245, b: 1, a: 0.56078434}
 --- !u!4 &2075177672
 Transform:
   m_ObjectHideFlags: 0
