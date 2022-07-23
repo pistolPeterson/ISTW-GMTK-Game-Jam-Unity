@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BranchItem :  ICollectible
+public class BrokenBearTrapItem : ICollectible
 {
-
-    public static event Action OnBranchCollected;
+    public static event Action OnBrokenBearTrapCollected;
 
     public override void Collect()
     {
-        OnBranchCollected?.Invoke();
+        OnBrokenBearTrapCollected?.Invoke();
         Debug.Log("You collected a branch");
 
         //turn invisible 
@@ -21,7 +20,4 @@ public class BranchItem :  ICollectible
         Destroy(gameObject, 0.1f);
     }
 
-   
-
-   
 }

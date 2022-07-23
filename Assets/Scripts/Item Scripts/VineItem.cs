@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using System; 
 
-public class BranchItem :  ICollectible
+public class VineItem : ICollectible
 {
-
-    public static event Action OnBranchCollected;
+    public static event Action OnVineCollected;
 
     public override void Collect()
     {
-        OnBranchCollected?.Invoke();
-        Debug.Log("You collected a branch");
+        OnVineCollected?.Invoke();
+        Debug.Log("You collected a vine");
 
         //turn invisible 
         TurnInvisble();
@@ -21,7 +20,6 @@ public class BranchItem :  ICollectible
         Destroy(gameObject, 0.1f);
     }
 
-   
+  
 
-   
 }

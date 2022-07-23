@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Inventory : MonoBehaviour
 {
@@ -24,11 +25,17 @@ public class Inventory : MonoBehaviour
     [Header("The UI Text trap objrctss")]
     public GameObject bearTrap;
     public GameObject bowArrow;
-   
+
+    public static event Action OnInventoryUIUpdate;
+
+    public int Ropes { get => ropes; set => ropes = value; }
+    public int ThornyBranches { get => thornyBranches; set => thornyBranches = value; }
+    public int Vines { get => vines; set => vines = value; }
+    public int BrokenBearTraps { get => brokenBearTrap; set => brokenBearTrap = value; }
+
     //4 prefabs of the trap items 
 
-    public void KillConfirmed() { enemiesKilled++; }   
-    public int GetEnemiesKilled() { return enemiesKilled; }
+
     private void Start()
     {
         enemiesKilled = 0;
@@ -71,11 +78,30 @@ public class Inventory : MonoBehaviour
             Instantiate(harpoonTrap, this.gameObject.transform.position, Quaternion.identity);
             ropes -= itemWeight;
             vines -= itemWeight;
-        }
-
-      
+        }     
 
     }
+
+    private void OnEnable()
+    {
+        BranchItem.OnBranchCollected += BranchPickedUp;
+        VineItem.OnVineCollected += VinePickedUp;
+        BrokenBearTrapItem.OnBrokenBearTrapCollected += BrokenBearTrapPickedUp;
+        RopeItem.OnRopeCollected += RopeItemPickedup; 
+    }
+    private void OnDisable()
+    {
+        BranchItem.OnBranchCollected -= BranchPickedUp;
+        VineItem.OnVineCollected -= VinePickedUp;
+        BrokenBearTrapItem.OnBrokenBearTrapCollected -= BrokenBearTrapPickedUp;
+        RopeItem.OnRopeCollected -= RopeItemPickedup;
+
+
+    }
+    public void RopeItemPickedup() { ropes++; OnInventoryUIUpdate?.Invoke(); }
+    public void BranchPickedUp() { thornyBranches++; OnInventoryUIUpdate?.Invoke(); }
+    public void VinePickedUp() { vines++; OnInventoryUIUpdate?.Invoke(); }
+    public void BrokenBearTrapPickedUp() { brokenBearTrap++; OnInventoryUIUpdate?.Invoke(); }
 
     public bool HasBranchSpikeTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
     {
@@ -139,4 +165,6 @@ public class Inventory : MonoBehaviour
         }
 
     }
+    public void KillConfirmed() { enemiesKilled++; }
+    public int GetEnemiesKilled() { return enemiesKilled; }
 }

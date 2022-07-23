@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BranchItem :  ICollectible
+public class RopeItem : ICollectible
 {
-
-    public static event Action OnBranchCollected;
+    public static event Action OnRopeCollected;
 
     public override void Collect()
     {
-        OnBranchCollected?.Invoke();
-        Debug.Log("You collected a branch");
+        OnRopeCollected?.Invoke();
+        Debug.Log("You collected a rope");
 
         //turn invisible 
         TurnInvisble();
@@ -21,7 +20,4 @@ public class BranchItem :  ICollectible
         Destroy(gameObject, 0.1f);
     }
 
-   
-
-   
 }
