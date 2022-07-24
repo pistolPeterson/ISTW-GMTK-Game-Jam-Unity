@@ -65,12 +65,12 @@ public class Flashlight : MonoBehaviour
         }
 
 
-        flashlightText.text = "FlashLight Power: " + flashlightPower + "% ";
+        flashlightText.text =  flashlightPower + "% ";
 
         if (flashlightPower <= 0)
         {
             flashlight.SetActive(false);
-            flashlightText.text = "FlashLight Power: 0% ";
+            flashlightText.text = "0% ";
             flashlightImgHolder.sprite = flashOff;
         }
        
