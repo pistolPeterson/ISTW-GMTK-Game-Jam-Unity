@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 74205721}
   - component: {fileID: 74205722}
   - component: {fileID: 74205723}
+  - component: {fileID: 74205724}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -492,6 +493,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556e92f8fd1e60941a1734ee45249777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &74205724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74205711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00eef53ee57ada2439bdf6ecad6afb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  branchSpikeTrap: {fileID: 4122498708498097863, guid: 7237f60ca37a2a949b2c537458f78d78, type: 3}
+  harpoonTrap: {fileID: 4356784428931718168, guid: f4146f114d2801c4bb488a43f4294f50, type: 3}
+  bearTrap: {fileID: 2728463909986291786, guid: 8e7f0e08bbe25cb44839bcc1107b1ed2, type: 3}
+  ropeTrap: {fileID: 0}
+  dummyPlacementSpeed: 0
 --- !u!1 &93036168
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3081,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &961146660
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7143636724727660696, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_Name
+      value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
 --- !u!1 &972762661
 GameObject:
   m_ObjectHideFlags: 0
@@ -71684,6 +71759,7 @@ MonoBehaviour:
   - {fileID: 8351437660636575626, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
   - {fileID: 5872105883070832251, guid: e617b6d958f9a344fa48402ee14d6f53, type: 3}
   - {fileID: 8351437660636575626, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+  - {fileID: 7143636724727660696, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
   secondsPerEnemy: 2
   isSpawning: 0
   maxPerRound: 4
@@ -72066,7 +72142,7 @@ MonoBehaviour:
   timeDisplay: {fileID: 1019049141}
   dayDisplay: {fileID: 659752970}
   ppv: {fileID: 2108005335}
-  tick: 750
+  tick: 7500000
   seconds: 0
   mins: 0
   hours: 8

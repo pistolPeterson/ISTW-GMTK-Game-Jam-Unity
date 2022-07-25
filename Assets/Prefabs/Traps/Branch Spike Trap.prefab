@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4122498708498097880}
   - component: {fileID: 4122498708498097881}
   - component: {fileID: 4122498708498097882}
-  - component: {fileID: 4122498708498097883}
+  - component: {fileID: 5605356721939917490}
   m_Layer: 0
   m_Name: Branch Spike Trap
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4122498708498097863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.437829, y: 28.31743, z: 6.569468}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.45, y: 0.91}
   m_EdgeRadius: 0
---- !u!114 &4122498708498097883
+--- !u!114 &5605356721939917490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4122498708498097863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e12e55ec64e5043b3246e2f3d49459, type: 3}
+  m_Script: {fileID: 11500000, guid: 52a08b1bbef07654891e048eb0f8c29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapKill: {fileID: 0}
-  timeUntilTrapDestroy: 0.25
+  placementSpeed: 5
+  damageAmount: 10

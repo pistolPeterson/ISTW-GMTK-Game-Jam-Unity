@@ -29,6 +29,7 @@ public class BaseEnemy : MonoBehaviour
     public EnemySO enemySO;//The scriptable object that makes it easier to change values later on
 
     public int damage;
+    
 
     private GameObject[] fakeTargets;
     private GameObject oneFakeTarget;
@@ -96,7 +97,7 @@ public class BaseEnemy : MonoBehaviour
             rb.velocity = Vector2.zero;
             if(time > ((1/enemySO.attackSpeed) * 5))
             {
-                audioSource.PlayOneShot(attackClips[Random.Range(0, attackClips.Length)]);
+               // audioSource.PlayOneShot(attackClips[Random.Range(0, attackClips.Length)]);
                 OnEnemyAttck?.Invoke();
                 FindObjectOfType<PlayerHealth>().TakeDamage(damage);            
                 time = 0;
@@ -120,5 +121,11 @@ public class BaseEnemy : MonoBehaviour
     void MoveCharacterSlow(Vector2 direction)
     {     
         rb.MovePosition((Vector2)transform.position + ((idleSpeed) * Time.deltaTime * direction));
+    }
+
+    public void Die()
+    {
+        Debug.Log("this base enemy kinda dead");
+        Destroy(gameObject);
     }
 }
