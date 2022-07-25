@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private AudioClip trapKill;
-    [SerializeField] private AudioClip trapPlace;
-    [SerializeField] private float timeUntilTrapDestroy; 
-    [SerializeField]private AudioSource trapSource;
+    [SerializeField] private float placementSpeed;
+    [SerializeField] private float damageAmount;
 
     private void Start()
     {
-        RandomizeSound();
-        trapSource = GetComponent<AudioSource>();
-        trapSource.PlayOneShot(trapPlace);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public virtual void TrapAbility(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        Destroy(collision.gameObject, 0.12f);
+        Destroy(this.gameObject, 0.2f);
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
         {
             //trap sfx 
             //stop enemy moving 
             //send something to ui to alert player 
             FindObjectOfType<Inventory>().KillConfirmed();
-            Destroy(collision.gameObject, 0.12f);
-            Destroy(this.gameObject, timeUntilTrapDestroy);
+            TrapAbility(collision);
         }
     }
 
-    private void RandomizeSound()
-    {
-        trapSource.volume = Random.Range(0.75f, 0.9f);
-        trapSource.pitch = Random.Range(0.97f, 1.03f);
-    }
 }
+
