@@ -16,6 +16,8 @@ public class HarpoonTrap : MonoBehaviour
 
     private void Start()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Bow n arrow/Bow Set Up", transform.position);
+
         audioSource = GetComponent<AudioSource>();  
         fired = false;
         time = 0;
@@ -40,7 +42,8 @@ public class HarpoonTrap : MonoBehaviour
     //assumption arrow is already in harpoon 
     public void FireArrow()
     {
-        audioSource.PlayOneShot(arrowFired);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Bow n arrow/ArrowFly", arrow.gameObject.transform.position);
+
         fired = true;
         //take arrow, and just push it forward for x amount of seconds,
         //after x seconds passed, set active to false, and place it back in its original pos

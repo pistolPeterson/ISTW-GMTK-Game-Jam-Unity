@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2728463909986291790}
   - component: {fileID: 2728463909986291789}
   - component: {fileID: 1507653570649785971}
+  - component: {fileID: 8761228568450077663}
   m_Layer: 0
   m_Name: Bear Trap
   m_TagString: Untagged
@@ -99,10 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e12e55ec64e5043b3246e2f3d49459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapKill: {fileID: 8300000, guid: 4a52b11e09628b142827f7dc20854ac4, type: 3}
-  trapPlace: {fileID: 8300000, guid: 624d41f39637db844a8301bc8016621e, type: 3}
-  timeUntilTrapDestroy: 0.125
-  trapSource: {fileID: 1507653570649785971}
+  placementSpeed: 0
+  damageAmount: 0
 --- !u!61 &2728463909986291789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -225,3 +224,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8761228568450077663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728463909986291786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea480994d14793a4ea3df77a04d1ae01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,6 +14,10 @@ public class Trap : MonoBehaviour
 
     public virtual void TrapAbility(Collider2D collision)
     {
+        
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Bear Trap/Bear Trap Kill", transform.position);
+
         Destroy(collision.gameObject, 0.12f);
         Destroy(this.gameObject, 0.2f);
     }
