@@ -10,7 +10,6 @@ public class RopeItem : ICollectible
     public override void Collect()
     {
         OnRopeCollected?.Invoke();
-        Debug.Log("You collected a rope");
 
         //turn invisible 
         TurnInvisble();

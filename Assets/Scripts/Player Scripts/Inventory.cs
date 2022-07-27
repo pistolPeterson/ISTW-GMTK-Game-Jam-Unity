@@ -46,18 +46,18 @@ public class Inventory : MonoBehaviour
 
         bearTrap.SetActive(false);
         bowArrow.SetActive(false);
-      
+
     }
 
     private void Update()
     {
-        
+
 
 
         if (HasFixedBearTrap())
             bearTrap.SetActive(true);
         else
-            bearTrap.SetActive(false) ;
+            bearTrap.SetActive(false);
 
         if (HasHarpoonTrap())
             bowArrow.SetActive(true);
@@ -80,7 +80,7 @@ public class Inventory : MonoBehaviour
             Instantiate(harpoonTrap, this.gameObject.transform.position, Quaternion.identity);
             ropes -= itemWeight;
             vines -= itemWeight;
-        }     
+        }
 
     }
 
@@ -89,7 +89,9 @@ public class Inventory : MonoBehaviour
         BranchItem.OnBranchCollected += BranchPickedUp;
         VineItem.OnVineCollected += VinePickedUp;
         BrokenBearTrapItem.OnBrokenBearTrapCollected += BrokenBearTrapPickedUp;
-        RopeItem.OnRopeCollected += RopeItemPickedup; 
+        RopeItem.OnRopeCollected += RopeItemPickedup;
+
+        CraftingPanelUI.OnCraftButtonClicked += CreateItem;
     }
     private void OnDisable()
     {
@@ -97,6 +99,8 @@ public class Inventory : MonoBehaviour
         VineItem.OnVineCollected -= VinePickedUp;
         BrokenBearTrapItem.OnBrokenBearTrapCollected -= BrokenBearTrapPickedUp;
         RopeItem.OnRopeCollected -= RopeItemPickedup;
+
+        CraftingPanelUI.OnCraftButtonClicked -= CreateItem;
 
 
     }
@@ -121,7 +125,7 @@ public class Inventory : MonoBehaviour
 
     public bool HasFixedBearTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
     {
-      
+
         if (ropes < itemWeight)
             return false;
         if (vines < 0)
@@ -134,7 +138,7 @@ public class Inventory : MonoBehaviour
 
     public bool HasHarpoonTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
     {
-           
+
         if (ropes < itemWeight)
             return false;
         if (vines < itemWeight)
@@ -150,7 +154,7 @@ public class Inventory : MonoBehaviour
         switch (itemType)
         {
             case ItemType.VINE:
-                vines+= amt;
+                vines += amt;
                 break;
             case ItemType.BROKEN_BEAR_TRAP:
                 brokenBearTrap += amt;
@@ -164,6 +168,17 @@ public class Inventory : MonoBehaviour
             default:
                 Debug.LogWarning("Brother why is this being called");
                 break;
+        }
+
+    }
+
+    public void CreateItem()
+    {
+        Debug.Log("creating item?");
+        int selectedItem = FindObjectOfType<CraftingPanelUI>().CurrentlySelectedItem();
+        if (selectedItem == 0 && HasFixedBearTrap())
+        {
+            Instantiate(fixBearTrap, this.gameObject.transform.position, Quaternion.identity);
         }
 
     }

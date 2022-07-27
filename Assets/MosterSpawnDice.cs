@@ -38,7 +38,6 @@ public class MosterSpawnDice : MonoBehaviour
     }
     public IEnumerator DieSystem()
     {
-        Debug.Log("starting die system");
         for (int i = 0; i < 5; i++)
         {
             var num = Random.Range(0, 5);
@@ -47,7 +46,6 @@ public class MosterSpawnDice : MonoBehaviour
            
         }
         yield return new WaitForSeconds(0.05f);
-        Debug.Log("starting special spawn " + (currentDieSide + 1));
         StartCoroutine(specialSpawn(currentDieSide + 1));
 
     }

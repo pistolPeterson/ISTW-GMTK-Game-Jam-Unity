@@ -10,7 +10,6 @@ public class VineItem : ICollectible
     public override void Collect()
     {
         OnVineCollected?.Invoke();
-        Debug.Log("You collected a vine");
 
         //turn invisible 
         TurnInvisble();

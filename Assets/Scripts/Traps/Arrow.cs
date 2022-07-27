@@ -21,7 +21,14 @@ public class Arrow : MonoBehaviour
             if(currentPow > 0)
             {
                 FindObjectOfType<Inventory>().KillConfirmed();
-                Destroy(collision.gameObject, 0.15f);
+                // Destroy(collision.gameObject, 0.15f);
+                var baseEnemy = collision.gameObject.GetComponent<BaseEnemy>();
+                if (baseEnemy != null)
+                {
+                    Debug.Log("this enemy dead af");
+                    baseEnemy.Die();
+
+                }
                 currentPow--;
             }
             

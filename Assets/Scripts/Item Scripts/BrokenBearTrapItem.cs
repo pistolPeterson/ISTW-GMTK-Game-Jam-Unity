@@ -10,7 +10,6 @@ public class BrokenBearTrapItem : ICollectible
     public override void Collect()
     {
         OnBrokenBearTrapCollected?.Invoke();
-        Debug.Log("You collected a branch");
 
         //turn invisible 
         TurnInvisble();

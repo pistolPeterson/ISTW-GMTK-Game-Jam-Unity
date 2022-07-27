@@ -125,7 +125,8 @@ public class BaseEnemy : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("this base enemy kinda dead");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Enemy/Generic Enemy Death/Enemy Death", transform.position);
+
         Destroy(gameObject);
     }
 }

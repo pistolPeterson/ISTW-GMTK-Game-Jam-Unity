@@ -38,7 +38,6 @@ public class PlayerHealth : Health
     public override void TakeDamage(int dmg)
     {
         if (!isAlive) return;
-        
         health -= dmg;
 
         UpdateHealth();
@@ -47,11 +46,16 @@ public class PlayerHealth : Health
         {
             Die();        
         }
+        else
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player/Player Hurt/Player Hurt", transform.position);
+
+
     }
 
     public override void Die()
     {
-        //show death animation, stop player from moving, show stats with button to restart          
+        //show death animation, stop player from moving, show stats with button to restart
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player/Player Die", transform.position);
         health = 0;
         OnDeath?.Invoke();
         isAlive = false;
