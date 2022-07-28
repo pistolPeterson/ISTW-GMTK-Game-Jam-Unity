@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro; 
 
 
 public class CraftingPanelUI : MonoBehaviour
 {
-
     [SerializeField] private GameObject fullCraftingPanelUI;
 
     [SerializeField] private Image bigImage;
@@ -15,6 +15,10 @@ public class CraftingPanelUI : MonoBehaviour
     [SerializeField] private Sprite bearTrapSprite;
     [SerializeField] private Sprite bowArrowTrapSprite;
     [SerializeField] private Sprite branchTrapSprite;
+
+    [SerializeField] private TextMeshProUGUI bearTrapAmt;
+    [SerializeField] private TextMeshProUGUI bowArrowAmt;
+    [SerializeField] private TextMeshProUGUI branchArrowAmt;
 
 
     private int currentlySelectedItem;
@@ -24,6 +28,8 @@ public class CraftingPanelUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         currentlySelectedItem = -1;
         isOpen = false; 
         fullCraftingPanelUI.SetActive(false);
@@ -39,8 +45,20 @@ public class CraftingPanelUI : MonoBehaviour
     {
         isOpen = !isOpen;
         fullCraftingPanelUI.SetActive(isOpen);
+
+        if(isOpen == true)
+        {
+            //make the text have the accurate amount they can make 
+           UpdateItemAmount();
+        }
     }
 
+    void UpdateItemAmount()
+    {
+        bearTrapAmt.text = "" + FindObjectOfType<Inventory>().PotentialBearTraps();
+        bowArrowAmt.text = "" + FindObjectOfType<Inventory>().PotentialBowArrowTraps();
+        branchArrowAmt.text = "" + FindObjectOfType<Inventory>().PotentialBranchTraps();
+    }
 
     public void ClickOnImage(int i)
     {//maybe if you have enough materials, you can get ready to craft 
@@ -67,9 +85,9 @@ public class CraftingPanelUI : MonoBehaviour
 
     public void CraftButton()
     {
-        //post event with f = 0
-        Debug.Log("craftikng?");
         OnCraftButtonClicked?.Invoke();
+        UpdateItemAmount();
+        FindObjectOfType<Inventory>().InvokeUIUpdate();
     }
 
     public int CurrentlySelectedItem() 

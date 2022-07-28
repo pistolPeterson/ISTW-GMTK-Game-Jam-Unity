@@ -25,7 +25,6 @@ public class MusicManager : MonoBehaviour
         //stops current music 
         //wait one sec 
         //start day music 
-        Debug.Log("starting day musci");
         StartCoroutine(dayMusicIenum());
     }
     public void NightMusic()
@@ -34,7 +33,6 @@ public class MusicManager : MonoBehaviour
         //stops current music 
         //wait one sec 
         //start day music 
-        Debug.Log("starting day musci");
         StartCoroutine(nightMusicIenum());
     }
 

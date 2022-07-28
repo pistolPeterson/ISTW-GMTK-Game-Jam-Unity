@@ -18,7 +18,6 @@ public class BranchTrap : Trap
 
     public override void TrapAbility(Collider2D collision)
     {
-        Debug.Log("any collision detected tho");
        // base.TrapAbility(collision);
         //if tank, take more than half health off
         //tank makes a sound

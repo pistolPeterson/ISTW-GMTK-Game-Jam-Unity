@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int ropes;
     [SerializeField] private int thornyBranches;
     [SerializeField] private int vines;
-    [SerializeField] private int brokenBearTrap;
+    [SerializeField] private int brokenBearTraps;
 
     private int enemiesKilled = 0;
 
@@ -22,16 +22,22 @@ public class Inventory : MonoBehaviour
     [Header("this is how much it 'costs' to make each type of weapon")]
     public int itemWeight;
 
-    [Header("The UI Text trap objrctss")]
+    [Header("The UI Text trap objects")]
     public GameObject bearTrap;
     public GameObject bowArrow;
+
+
+    [Header("Trap Recipes")]
+    [SerializeField] private TrapRecipe bearTrapRec;
+    [SerializeField] private TrapRecipe branchTrapRec;
+    [SerializeField] private TrapRecipe bowArrowTrapRec;
 
     public static event Action OnInventoryUIUpdate;
 
     public int Ropes { get => ropes; set => ropes = value; }
     public int ThornyBranches { get => thornyBranches; set => thornyBranches = value; }
     public int Vines { get => vines; set => vines = value; }
-    public int BrokenBearTraps { get => brokenBearTrap; set => brokenBearTrap = value; }
+    public int BrokenBearTraps { get => brokenBearTraps; set => brokenBearTraps = value; }
 
     //4 prefabs of the trap items 
 
@@ -41,7 +47,7 @@ public class Inventory : MonoBehaviour
         enemiesKilled = 0;
         ropes = 0;
         thornyBranches = 0;
-        brokenBearTrap = 0;
+        brokenBearTraps = 0;
         vines = 0;
 
         bearTrap.SetActive(false);
@@ -51,29 +57,26 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-
-
-
-        if (HasFixedBearTrap())
+        if (CanMakeTrap(bearTrapRec))
             bearTrap.SetActive(true);
         else
             bearTrap.SetActive(false);
 
-        if (HasHarpoonTrap())
+        if (CanMakeTrap(bowArrowTrapRec))
             bowArrow.SetActive(true);
         else
             bowArrow.SetActive(false);
 
-        if (Input.GetKeyDown(KeyCode.J) && HasFixedBearTrap())
+        if (Input.GetKeyDown(KeyCode.J) && CanMakeTrap(bearTrapRec))
         {
             Debug.Log("gimme a fixed bear trap now");
             //spawn branch spike trap here
             Instantiate(fixBearTrap, this.gameObject.transform.position, Quaternion.identity);
             thornyBranches -= itemWeight;
-            brokenBearTrap -= itemWeight;
+            brokenBearTraps -= itemWeight;
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && HasHarpoonTrap())
+        if (Input.GetKeyDown(KeyCode.K) && CanMakeTrap(bowArrowTrapRec))
         {
             Debug.Log("gimme a harpoon trap now");
             //spawn branch spike trap here
@@ -107,48 +110,26 @@ public class Inventory : MonoBehaviour
     public void RopeItemPickedup() { ropes++; OnInventoryUIUpdate?.Invoke(); }
     public void BranchPickedUp() { thornyBranches++; OnInventoryUIUpdate?.Invoke(); }
     public void VinePickedUp() { vines++; OnInventoryUIUpdate?.Invoke(); }
-    public void BrokenBearTrapPickedUp() { brokenBearTrap++; OnInventoryUIUpdate?.Invoke(); }
+    public void BrokenBearTrapPickedUp() { brokenBearTraps++; OnInventoryUIUpdate?.Invoke(); }
 
-    public bool HasBranchSpikeTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
+    public bool CanMakeTrap(TrapRecipe recipe)
     {
-        if (thornyBranches < itemWeight)
-            return false;
-        if (ropes < 0)
-            return false;
-        if (vines < itemWeight)
-            return false;
-        if (brokenBearTrap < 0)
+        if (thornyBranches < recipe.branchAmount)
             return false;
 
-        return true;
+        if (ropes < recipe.ropeAmount)
+            return false;
+
+        if (vines < recipe.vineAmount)
+            return false;
+
+        if (brokenBearTraps < recipe.bbearTrapAmount)
+            return false; 
+
+        return true; 
     }
 
-    public bool HasFixedBearTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
-    {
-
-        if (ropes < itemWeight)
-            return false;
-        if (vines < 0)
-            return false;
-        if (brokenBearTrap < itemWeight)
-            return false;
-
-        return true;
-    }
-
-    public bool HasHarpoonTrap() //refactor: you can use scriptable objects to make "recipes" for the traps
-    {
-
-        if (ropes < itemWeight)
-            return false;
-        if (vines < itemWeight)
-            return false;
-        if (brokenBearTrap < 0)
-            return false;
-
-        return true;
-    }
-
+    public void InvokeUIUpdate() { OnInventoryUIUpdate?.Invoke(); }
     public void Add(ItemType itemType, int amt)
     {
         switch (itemType)
@@ -157,7 +138,7 @@ public class Inventory : MonoBehaviour
                 vines += amt;
                 break;
             case ItemType.BROKEN_BEAR_TRAP:
-                brokenBearTrap += amt;
+                brokenBearTraps += amt;
                 break;
             case ItemType.THORNY_BRANCH:
                 thornyBranches += amt;
@@ -174,14 +155,87 @@ public class Inventory : MonoBehaviour
 
     public void CreateItem()
     {
-        Debug.Log("creating item?");
         int selectedItem = FindObjectOfType<CraftingPanelUI>().CurrentlySelectedItem();
-        if (selectedItem == 0 && HasFixedBearTrap())
+        //this can be turned into a method/ switch statement
+        if (selectedItem == 0 && CanMakeTrap(bearTrapRec))
         {
+            //special code to hold it on him before he places it 
             Instantiate(fixBearTrap, this.gameObject.transform.position, Quaternion.identity);
+
+            //code to remove out of inventory items based on recipe
+            RemoveItemsFromInventory(bearTrapRec);
         }
 
+        if (selectedItem == 1 && CanMakeTrap(bowArrowTrapRec))
+        {
+            Instantiate(harpoonTrap, this.gameObject.transform.position, Quaternion.identity);
+            RemoveItemsFromInventory(bowArrowTrapRec);
+        }
+
+
+        if (selectedItem == 2 && CanMakeTrap(branchTrapRec))
+        {
+            Instantiate(branchSpikeTrap, this.gameObject.transform.position, Quaternion.identity);
+            RemoveItemsFromInventory(branchTrapRec);
+
+        }
     }
+    
+    public void RemoveItemsFromInventory(TrapRecipe recipe)
+    {
+        ropes -= recipe.ropeAmount;
+        vines -= recipe.vineAmount;
+        thornyBranches -= recipe.branchAmount;
+        brokenBearTraps -= recipe.bbearTrapAmount;
+    }
+
+    //brute force approach? can this be cleaner?
+    public int CurrentMaxAmountCanMake(TrapRecipe recipe)
+    {
+        //if you dont even have enough items for a single trap, return 0
+        if(!CanMakeTrap(recipe)) return 0;
+
+        // at this point we are garanteed one or more traps we can make; 
+        int amt = int.MaxValue;
+        int w = int.MaxValue, x = int.MaxValue, y = int.MaxValue, z = int.MaxValue;
+        //cache in all the items we currently have in the inventory
+        int tempRopes = ropes; 
+        int tempVines = vines;
+        int tempbbTraps = brokenBearTraps;
+        int tempBranches = thornyBranches;
+
+        //how many traps can we make with just the ropes? 
+        if(recipe.ropeAmount != 0)
+         w = tempRopes / recipe.ropeAmount;
+        if(w < amt)//make it the new amt if its less than the current amt
+            amt = w;
+
+        //how many traps can we make with just the vines? 
+        if (recipe.vineAmount != 0)
+            x = tempVines / recipe.vineAmount;
+        if (x < amt)
+            amt = x;
+
+        //etc..
+        if (recipe.bbearTrapAmount != 0)
+            y = tempbbTraps / recipe.bbearTrapAmount;
+        if (y < amt)
+            amt = y;
+
+        //etc..
+        if (recipe.branchAmount != 0)
+            z = tempBranches / recipe.branchAmount;
+        if (y < amt)
+            amt = z;
+
+        //should return the smallest amount we can make
+        return amt;
+    }
+    public int PotentialBearTraps() { return CurrentMaxAmountCanMake(bearTrapRec); }
+    public int PotentialBowArrowTraps() { return CurrentMaxAmountCanMake(bowArrowTrapRec); }
+    public int PotentialBranchTraps() { return CurrentMaxAmountCanMake(branchTrapRec); }
+
     public void KillConfirmed() { enemiesKilled++; }
     public int GetEnemiesKilled() { return enemiesKilled; }
 }
+
