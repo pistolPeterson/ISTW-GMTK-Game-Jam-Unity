@@ -16,3 +16,5 @@ MonoBehaviour:
   branchAmount: 5
   ropeAmount: 1
   vineAmount: 1
+  weaponSprite: {fileID: -879170426, guid: f8d994e9072cbd94fb19a0831ca9b680, type: 3}
+  weaponPrefab: {fileID: 4122498708498097863, guid: 7237f60ca37a2a949b2c537458f78d78, type: 3}

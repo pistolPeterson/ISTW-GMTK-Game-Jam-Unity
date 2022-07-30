@@ -18,17 +18,13 @@ public class Flashlight : MonoBehaviour
     private float flashLightRechargeRate;
    
 
-    [Header("Audio Stuff")] 
-    [SerializeField] private AudioClip toggleClip;
-    [SerializeField] private AudioClip brokenLightClip;
-    private AudioSource audioSource;
+   
 
     private DayNightStateMachine dnsm;
     private PlayerHealth pm; 
     private void Start()
     {
         flashlightImgHolder.sprite = flashOff;
-         audioSource = GetComponent<AudioSource>();
         flashlight.SetActive(false);
         isOn = false;
         time = 0;
@@ -106,21 +102,13 @@ public class Flashlight : MonoBehaviour
 
     private void PlayToggleSound()
     {
-        //randomize ssound
-        RandomizeSound();
-        audioSource.PlayOneShot(toggleClip);
+        
     }
     private void PlayBrokeSound()
     {
-        //randomize ssound
-        RandomizeSound();
-        audioSource.PlayOneShot(brokenLightClip);
+       
     }
 
-    private void RandomizeSound()
-    {
-        audioSource.volume = Random.Range(0.75f,0.9f ); 
-        audioSource.pitch = Random.Range(0.97f, 1.03f);
-    }
+  
 
 }

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This is just for debugging. (potential cheat code system in as well)
+/// </summary>
 public class PlaceItem : MonoBehaviour
 {
 

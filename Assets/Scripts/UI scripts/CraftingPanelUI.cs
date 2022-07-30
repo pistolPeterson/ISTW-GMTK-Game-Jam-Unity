@@ -20,15 +20,20 @@ public class CraftingPanelUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bowArrowAmt;
     [SerializeField] private TextMeshProUGUI branchArrowAmt;
 
+    [SerializeField] private TextMeshProUGUI recipeText; 
+
 
     private int currentlySelectedItem;
-    private bool isOpen; 
+    private bool isOpen;
 
+    private Inventory inv;
+   
     public static event Action OnCraftButtonClicked;
     // Start is called before the first frame update
     void Start()
     {
-
+        inv = FindObjectOfType<Inventory>();
+       
 
         currentlySelectedItem = -1;
         isOpen = false; 
@@ -49,15 +54,15 @@ public class CraftingPanelUI : MonoBehaviour
         if(isOpen == true)
         {
             //make the text have the accurate amount they can make 
-           UpdateItemAmount();
+           InitUI();
         }
     }
 
-    void UpdateItemAmount()
+    void InitUI()
     {
-        bearTrapAmt.text = "" + FindObjectOfType<Inventory>().PotentialBearTraps();
-        bowArrowAmt.text = "" + FindObjectOfType<Inventory>().PotentialBowArrowTraps();
-        branchArrowAmt.text = "" + FindObjectOfType<Inventory>().PotentialBranchTraps();
+        bearTrapAmt.text = "" + inv.PotentialBearTraps();
+        bowArrowAmt.text = "" + inv.PotentialBowArrowTraps();
+        branchArrowAmt.text = "" + inv.PotentialBranchTraps();
     }
 
     public void ClickOnImage(int i)
@@ -68,12 +73,15 @@ public class CraftingPanelUI : MonoBehaviour
         {
             case 0:
                 bigImage.sprite = bearTrapSprite;
+                recipeText.text = DisplayRecipeText(inv.bearTrapRec);
                 break;
             case 1:
                 bigImage.sprite = bowArrowTrapSprite;
+                recipeText.text = DisplayRecipeText(inv.bowArrowTrapRec);
                 break;
             case 2:
                 bigImage.sprite = branchTrapSprite;
+                recipeText.text = DisplayRecipeText(inv.branchTrapRec);
                 break;
 
 
@@ -82,12 +90,20 @@ public class CraftingPanelUI : MonoBehaviour
         currentlySelectedItem = i;
     }
 
+    private string DisplayRecipeText(TrapRecipe trapRecipe)
+    {
+        string text = trapRecipe.ropeAmount + "x Ropes\n" +
+                      trapRecipe.branchAmount + "x Branches\n" +
+                      trapRecipe.vineAmount + "x Vines\n" +
+                      trapRecipe.bbearTrapAmount + "x Broken Bear Traps";
 
+        return text;
+    }
     public void CraftButton()
     {
         OnCraftButtonClicked?.Invoke();
-        UpdateItemAmount();
-        FindObjectOfType<Inventory>().InvokeUIUpdate();
+        InitUI();
+        inv.InvokeUIUpdate();
     }
 
     public int CurrentlySelectedItem() 

@@ -15,9 +15,9 @@ public class Inventory : MonoBehaviour
     private int enemiesKilled = 0;
 
     [Header("the trap prefabs")]
-    public GameObject branchSpikeTrap;
-    public GameObject harpoonTrap;
-    public GameObject fixBearTrap;
+    public GameObject branchSpikeTrapPrefab;
+    public GameObject harpoonTrapPrefab;
+    public GameObject fixBearTrapPrefab;
 
     [Header("this is how much it 'costs' to make each type of weapon")]
     public int itemWeight;
@@ -28,11 +28,13 @@ public class Inventory : MonoBehaviour
 
 
     [Header("Trap Recipes")]
-    [SerializeField] private TrapRecipe bearTrapRec;
-    [SerializeField] private TrapRecipe branchTrapRec;
-    [SerializeField] private TrapRecipe bowArrowTrapRec;
+    public TrapRecipe bearTrapRec;
+    public TrapRecipe branchTrapRec;
+    public TrapRecipe bowArrowTrapRec;
 
     public static event Action OnInventoryUIUpdate;
+
+    private PlayerPlaceItem placeItem;
 
     public int Ropes { get => ropes; set => ropes = value; }
     public int ThornyBranches { get => thornyBranches; set => thornyBranches = value; }
@@ -44,11 +46,12 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        placeItem = GetComponent<PlayerPlaceItem>();
         enemiesKilled = 0;
-        ropes = 0;
-        thornyBranches = 0;
-        brokenBearTraps = 0;
-        vines = 0;
+        ropes = 5;
+        thornyBranches = 5;
+        brokenBearTraps = 5;
+        vines = 5;
 
         bearTrap.SetActive(false);
         bowArrow.SetActive(false);
@@ -71,7 +74,7 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log("gimme a fixed bear trap now");
             //spawn branch spike trap here
-            Instantiate(fixBearTrap, this.gameObject.transform.position, Quaternion.identity);
+            Instantiate(fixBearTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
             thornyBranches -= itemWeight;
             brokenBearTraps -= itemWeight;
         }
@@ -80,7 +83,7 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log("gimme a harpoon trap now");
             //spawn branch spike trap here
-            Instantiate(harpoonTrap, this.gameObject.transform.position, Quaternion.identity);
+            Instantiate(harpoonTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
             ropes -= itemWeight;
             vines -= itemWeight;
         }
@@ -159,23 +162,35 @@ public class Inventory : MonoBehaviour
         //this can be turned into a method/ switch statement
         if (selectedItem == 0 && CanMakeTrap(bearTrapRec))
         {
-            //special code to hold it on him before he places it 
-            Instantiate(fixBearTrap, this.gameObject.transform.position, Quaternion.identity);
+            //instead of instantiate here, you delagate to a new script that handles placement 
+            //parameters, just the trap type! 
+            Instantiate(fixBearTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
 
-            //code to remove out of inventory items based on recipe
+            //psuedocode 
+            //set active a fake trap in front of player
+            //if player presses enter then it will actually be placed 
+            //save position and rotation of temp trap,set temp trap to inacitve 
+            //instantiate based on the saved data at the place 
+
+            placeItem.PlaceItemMode(bearTrapRec);
+
             RemoveItemsFromInventory(bearTrapRec);
         }
 
         if (selectedItem == 1 && CanMakeTrap(bowArrowTrapRec))
         {
-            Instantiate(harpoonTrap, this.gameObject.transform.position, Quaternion.identity);
+            Instantiate(harpoonTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
+            placeItem.PlaceItemMode(bowArrowTrapRec);
+
             RemoveItemsFromInventory(bowArrowTrapRec);
         }
 
 
         if (selectedItem == 2 && CanMakeTrap(branchTrapRec))
         {
-            Instantiate(branchSpikeTrap, this.gameObject.transform.position, Quaternion.identity);
+            Instantiate(branchSpikeTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
+            placeItem.PlaceItemMode(branchTrapRec);
+
             RemoveItemsFromInventory(branchTrapRec);
 
         }
@@ -194,39 +209,32 @@ public class Inventory : MonoBehaviour
     {
         //if you dont even have enough items for a single trap, return 0
         if(!CanMakeTrap(recipe)) return 0;
-
+        bool canCraft = true;
         // at this point we are garanteed one or more traps we can make; 
-        int amt = int.MaxValue;
-        int w = int.MaxValue, x = int.MaxValue, y = int.MaxValue, z = int.MaxValue;
-        //cache in all the items we currently have in the inventory
-        int tempRopes = ropes; 
-        int tempVines = vines;
-        int tempbbTraps = brokenBearTraps;
-        int tempBranches = thornyBranches;
+        int amt = 0;
+       
+        int tRopes = ropes; 
+        int tVines = vines;
+        int tbbTrap = brokenBearTraps;
+        int tBranches = thornyBranches;
+        while (canCraft)
+        {
+            if(recipe.ropeAmount > tRopes || recipe.vineAmount > tVines || recipe.bbearTrapAmount > tbbTrap || recipe.branchAmount > tBranches)
+            {
+                canCraft = false;
+            }
+            else
+            {
+                tRopes -= recipe.ropeAmount;
+                tVines -= recipe.vineAmount;
+                tBranches -= recipe.branchAmount;
+                tbbTrap -= recipe.bbearTrapAmount;
 
-        //how many traps can we make with just the ropes? 
-        if(recipe.ropeAmount != 0)
-         w = tempRopes / recipe.ropeAmount;
-        if(w < amt)//make it the new amt if its less than the current amt
-            amt = w;
-
-        //how many traps can we make with just the vines? 
-        if (recipe.vineAmount != 0)
-            x = tempVines / recipe.vineAmount;
-        if (x < amt)
-            amt = x;
-
-        //etc..
-        if (recipe.bbearTrapAmount != 0)
-            y = tempbbTraps / recipe.bbearTrapAmount;
-        if (y < amt)
-            amt = y;
-
-        //etc..
-        if (recipe.branchAmount != 0)
-            z = tempBranches / recipe.branchAmount;
-        if (y < amt)
-            amt = z;
+                amt++;
+            }
+           
+        }
+    
 
         //should return the smallest amount we can make
         return amt;
