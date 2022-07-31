@@ -45,6 +45,50 @@ public class CraftingPanelUI : MonoBehaviour
         {
             TogglePanel();
         }
+        //REFACTOR too much info in update loop, refactor into method
+
+        if(isOpen)
+        {
+            if(Input.GetKeyDown(KeyCode.S))
+            {
+                //edge case 
+                if (currentlySelectedItem == 2)//if last item of selected 
+                {
+                    ClickOnImage(0);
+                    currentlySelectedItem = 0;
+                }
+                else
+                {
+                    currentlySelectedItem++;
+                    ClickOnImage(currentlySelectedItem);
+                }
+            }
+
+
+            if(Input.GetKeyDown(KeyCode.W))
+            {
+                //edge case 
+                if (currentlySelectedItem == 0)//if first item of selected 
+                {
+                    ClickOnImage(2);
+                    currentlySelectedItem = 2;
+                }
+                else
+                {
+                    currentlySelectedItem--;
+                    ClickOnImage(currentlySelectedItem);
+                }
+
+            }
+
+            if(Input.GetKeyDown(KeyCode.Return))
+            {
+                CraftButton();
+                TogglePanel();
+            }
+        }
+
+
     }
     public void TogglePanel()
     {
@@ -53,8 +97,10 @@ public class CraftingPanelUI : MonoBehaviour
 
         if(isOpen == true)
         {
-            //make the text have the accurate amount they can make 
-           InitUI();
+            InitUI();
+            ClickOnImage(0);
+            //isopen mode? 
+
         }
     }
 

@@ -70,23 +70,23 @@ public class Inventory : MonoBehaviour
         else
             bowArrow.SetActive(false);
 
-        if (Input.GetKeyDown(KeyCode.J) && CanMakeTrap(bearTrapRec))
-        {
-            Debug.Log("gimme a fixed bear trap now");
-            //spawn branch spike trap here
-            Instantiate(fixBearTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
-            thornyBranches -= itemWeight;
-            brokenBearTraps -= itemWeight;
-        }
+        //if (Input.GetKeyDown(KeyCode.J) && CanMakeTrap(bearTrapRec))
+        //{
+        //    Debug.Log("gimme a fixed bear trap now");
+        //    //spawn branch spike trap here
+        //    Instantiate(fixBearTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
+        //    thornyBranches -= itemWeight;
+        //    brokenBearTraps -= itemWeight;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.K) && CanMakeTrap(bowArrowTrapRec))
-        {
-            Debug.Log("gimme a harpoon trap now");
-            //spawn branch spike trap here
-            Instantiate(harpoonTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
-            ropes -= itemWeight;
-            vines -= itemWeight;
-        }
+        //if (Input.GetKeyDown(KeyCode.K) && CanMakeTrap(bowArrowTrapRec))
+        //{
+        //    Debug.Log("gimme a harpoon trap now");
+        //    //spawn branch spike trap here
+        //    Instantiate(harpoonTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
+        //    ropes -= itemWeight;
+        //    vines -= itemWeight;
+        //}
 
     }
 
@@ -164,7 +164,7 @@ public class Inventory : MonoBehaviour
         {
             //instead of instantiate here, you delagate to a new script that handles placement 
             //parameters, just the trap type! 
-            Instantiate(fixBearTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
+           // Instantiate(fixBearTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
 
             //psuedocode 
             //set active a fake trap in front of player
@@ -179,7 +179,7 @@ public class Inventory : MonoBehaviour
 
         if (selectedItem == 1 && CanMakeTrap(bowArrowTrapRec))
         {
-            Instantiate(harpoonTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
+           // Instantiate(harpoonTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
             placeItem.PlaceItemMode(bowArrowTrapRec);
 
             RemoveItemsFromInventory(bowArrowTrapRec);
@@ -188,7 +188,7 @@ public class Inventory : MonoBehaviour
 
         if (selectedItem == 2 && CanMakeTrap(branchTrapRec))
         {
-            Instantiate(branchSpikeTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
+           // Instantiate(branchSpikeTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
             placeItem.PlaceItemMode(branchTrapRec);
 
             RemoveItemsFromInventory(branchTrapRec);

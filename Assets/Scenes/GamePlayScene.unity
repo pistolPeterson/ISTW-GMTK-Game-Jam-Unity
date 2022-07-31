@@ -3785,67 +3785,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1001 &961146660
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7143636724727660696, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_Name
-      value: Tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660696, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143636724727660708, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
 --- !u!1 &972762661
 GameObject:
   m_ObjectHideFlags: 0
@@ -73942,7 +73881,7 @@ MonoBehaviour:
   - {fileID: 5872105883070832251, guid: e617b6d958f9a344fa48402ee14d6f53, type: 3}
   - {fileID: 8351437660636575626, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
   - {fileID: 7143636724727660696, guid: b96c5d7cfd5cdd44a8bff719e53ce489, type: 3}
-  secondsPerEnemy: 2
+  secondsPerEnemy: 3
   isSpawning: 0
   maxPerRound: 4
 --- !u!1 &2038380251
@@ -74202,7 +74141,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075816598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979cbb46ad2bca24b9347318b4de5122, type: 3}
   m_Name: 
