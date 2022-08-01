@@ -77,7 +77,7 @@ public class HarpoonTrap : MonoBehaviour
     {
         if(fired)
         {
-             arrow.gameObject.transform.position += transform.right * speedMult;
+             arrow.gameObject.transform.position += transform.up * speedMult;
         }
     }
 

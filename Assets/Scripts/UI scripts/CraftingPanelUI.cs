@@ -99,9 +99,11 @@ public class CraftingPanelUI : MonoBehaviour
         {
             InitUI();
             ClickOnImage(0);
-            //isopen mode? 
+            Time.timeScale = 0.0f; 
 
         }
+        else 
+            Time.timeScale = 1.0f;
     }
 
     void InitUI()

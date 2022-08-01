@@ -70,23 +70,7 @@ public class Inventory : MonoBehaviour
         else
             bowArrow.SetActive(false);
 
-        //if (Input.GetKeyDown(KeyCode.J) && CanMakeTrap(bearTrapRec))
-        //{
-        //    Debug.Log("gimme a fixed bear trap now");
-        //    //spawn branch spike trap here
-        //    Instantiate(fixBearTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
-        //    thornyBranches -= itemWeight;
-        //    brokenBearTraps -= itemWeight;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.K) && CanMakeTrap(bowArrowTrapRec))
-        //{
-        //    Debug.Log("gimme a harpoon trap now");
-        //    //spawn branch spike trap here
-        //    Instantiate(harpoonTrapPrefab, this.gameObject.transform.position, Quaternion.identity);
-        //    ropes -= itemWeight;
-        //    vines -= itemWeight;
-        //}
+       
 
     }
 
