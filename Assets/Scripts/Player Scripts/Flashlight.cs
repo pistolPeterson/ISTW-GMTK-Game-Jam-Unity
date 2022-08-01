@@ -42,7 +42,6 @@ public class Flashlight : MonoBehaviour
             //Debug.Log("inside timer? ");
             if (dnsm.GetDayNightState() == DayNightEnum.DAY)
             {
-                //Debug.Log("its day time my dudes " + flashlightPower);
                 flashlightPower += 1.75f;
                 if (flashlightPower >= 100)
                     flashlightPower = 100;
@@ -102,13 +101,15 @@ public class Flashlight : MonoBehaviour
 
     private void PlayToggleSound()
     {
-        
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Flashlight/Flashlight Toggle", transform.position);
+
     }
     private void PlayBrokeSound()
     {
-       
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Flashlight/Flashlight Broke", transform.position);
+
     }
 
-  
+
 
 }

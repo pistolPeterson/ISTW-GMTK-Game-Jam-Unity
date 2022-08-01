@@ -38,12 +38,13 @@ public class MosterSpawnDice : MonoBehaviour
     }
     public IEnumerator DieSystem()
     {
-        for (int i = 0; i < 5; i++)
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI + Stingers/Dice Roll", transform.position);
+        for (int i = 0; i < 50; i++)
         {
             var num = Random.Range(0, 5);
             currentDieSide = num;
-            dieImageHolder.sprite = dieSides[num]; 
-           
+            dieImageHolder.sprite = dieSides[num];
+            yield return new WaitForSeconds(0.05f);
         }
         yield return new WaitForSeconds(0.05f);
         StartCoroutine(specialSpawn(currentDieSide + 1));

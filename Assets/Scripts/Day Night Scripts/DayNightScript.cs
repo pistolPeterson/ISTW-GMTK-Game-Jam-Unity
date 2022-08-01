@@ -124,16 +124,18 @@ public class DayNightScript : MonoBehaviour
 
     public void PostBeginNightEvent()
     {
-        var musicMotor = FindObjectOfType<MusicMotor>();
-        if (musicMotor != null)
-            StartCoroutine(musicMotor.changeState(FindObjectOfType<NightMusicState>()));
+        
 
         beginNight?.Invoke();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI + Stingers/Night Event Stinger", transform.position);
+
     }
 
     public void PostBeginDayEvent()
     {
         beginDay?.Invoke();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI + Stingers/Day Event Stinger", transform.position);
+
     }
     public void DisplayTime() // Shows time and day in ui
     {

@@ -156,7 +156,6 @@ public class CraftingPanelUI : MonoBehaviour
 
     public int CurrentlySelectedItem() 
     {
-        Debug.Log("current slected item tho");
         if (currentlySelectedItem == -1)
             return 0;
 

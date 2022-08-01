@@ -13,8 +13,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI + Stingers/Play Game Button Stinger", transform.position);
 
-       //StartCoroutine( FindObjectOfType<MusicMotor>().changeState(FindObjectOfType<DeathAmbienceState>()));
         StartCoroutine(LoadScene1());
     }
     public void StartTutorial()

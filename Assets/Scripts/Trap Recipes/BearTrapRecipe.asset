@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ea47986018e3f469316efa02cb0dac, type: 3}
   m_Name: BearTrapRecipe
   m_EditorClassIdentifier: 
-  bbearTrapAmount: 1
-  branchAmount: 1
-  ropeAmount: 1
+  bbearTrapAmount: 2
+  branchAmount: 2
+  ropeAmount: 2
   vineAmount: 0
   weaponSprite: {fileID: 21300000, guid: c2338c03289c02644a485e8dafd7a126, type: 3}
   weaponPrefab: {fileID: 2728463909986291786, guid: 8e7f0e08bbe25cb44839bcc1107b1ed2, type: 3}

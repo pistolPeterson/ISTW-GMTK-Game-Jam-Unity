@@ -56,6 +56,7 @@ public class PlayerHealth : Health
     {
         //show death animation, stop player from moving, show stats with button to restart
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player/Player Die", transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI + Stingers/Player Die Stinger", transform.position);
         health = 0;
         OnDeath?.Invoke();
         isAlive = false;

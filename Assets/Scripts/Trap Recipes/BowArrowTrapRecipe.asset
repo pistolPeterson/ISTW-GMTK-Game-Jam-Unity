@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BowArrowTrapRecipe
   m_EditorClassIdentifier: 
   bbearTrapAmount: 0
-  branchAmount: 5
-  ropeAmount: 5
-  vineAmount: 5
+  branchAmount: 4
+  ropeAmount: 3
+  vineAmount: 4
   weaponSprite: {fileID: 21300000, guid: 333774b54f70c1c47bd4f26309c193de, type: 3}
   weaponPrefab: {fileID: 4356784428931718168, guid: f4146f114d2801c4bb488a43f4294f50, type: 3}
