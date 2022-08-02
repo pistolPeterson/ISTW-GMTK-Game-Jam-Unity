@@ -15,6 +15,6 @@ MonoBehaviour:
   chaseSpeed: 4.26
   idleSpeed: 1.1
   health: 58
-  attackAmount: 23
+  attackAmount: 32
   attackSpeed: 7.96
   chaseRadius: 13.2

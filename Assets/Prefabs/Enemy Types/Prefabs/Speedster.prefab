@@ -191,7 +191,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   enemySO: {fileID: 11400000, guid: 78cc92586631d844eaf87dfb48622d26, type: 2}
-  damage: 5
+  damage: 11
   audioSource: {fileID: 8292448634071557484}
   attackClips:
   - {fileID: 8300000, guid: 554d4d38745426d4e96246a4a199a5ce, type: 3}

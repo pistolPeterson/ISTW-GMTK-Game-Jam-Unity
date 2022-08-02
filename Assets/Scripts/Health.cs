@@ -19,10 +19,11 @@ public class Health : MonoBehaviour
 
     public virtual void TakeDamage(int dmg)
     {       
-        health -= dmg;
         
+        health -= dmg;
         if (health <= 0)
         {
+            Debug.Log("this kid dead dead");
             Die();             
         }
     }

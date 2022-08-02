@@ -19,7 +19,6 @@ public class TankEnemy : MonoBehaviour
 
     public void Damage()
     {
-        Debug.Log("tank kinda damaged ");
         tankHealth--;
         CheckDie();
     }
@@ -28,7 +27,6 @@ public class TankEnemy : MonoBehaviour
     {
         if (tankHealth <= 0)
         {
-            Debug.Log("tank dead af");
             Destroy(gameObject);
         }
     }

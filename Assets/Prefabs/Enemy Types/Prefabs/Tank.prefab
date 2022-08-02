@@ -107,7 +107,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   enemySO: {fileID: 11400000, guid: dca6e9c2737499244b21932ec0ab9818, type: 2}
-  damage: 20
+  damage: 38
   audioSource: {fileID: 0}
   attackClips: []
 --- !u!50 &7143636724727660697

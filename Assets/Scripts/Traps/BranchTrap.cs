@@ -24,8 +24,9 @@ public class BranchTrap : Trap
         var attemptTank = collision.gameObject.GetComponent<TankEnemy>(); 
         if(attemptTank != null)
         {
-            //attemptTank.damage(most of thier health) inside it is their dmg sfx 
-            attemptTank.Damage();
+           if(Random.Range(0, 500) % 2 == 0) //branches have 50% chance to actually kill enemies
+                attemptTank.Damage();
+
             Destroy(this.gameObject);
             return; //safety break so it doesnt go through the rest of the method before it gets destroyed  
         }
@@ -37,10 +38,16 @@ public class BranchTrap : Trap
         if(attemptedBaseEnemy != null)
         {
             // call its kill method, it dies then makes a death sfx 
-            Destroy(this.gameObject);
 
-            attemptedBaseEnemy.Die();
+            if (Random.Range(0, 500) % 2 == 0)
+                attemptedBaseEnemy.Die();
+
+
+            Destroy(this.gameObject);
         }
+
+       
+           
 
         
 
