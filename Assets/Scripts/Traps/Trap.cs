@@ -6,6 +6,7 @@ public class Trap : MonoBehaviour
 {
     [SerializeField] private float placementSpeed;
     [SerializeField] private float damageAmount;
+    public GameObject brokenBearTrap; 
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class Trap : MonoBehaviour
             baseEnemy.Die();
 
         }
-        // Destroy(collision.gameObject, 0.12f);
+        Instantiate(brokenBearTrap, transform.position, Quaternion.identity);
         Destroy(this.gameObject, 0.2f);
     }
 

@@ -11,7 +11,6 @@ public class BranchItem :  ICollectible
     public override void Collect()
     {
         OnBranchCollected?.Invoke();
-        Debug.Log("You collected a branch");
 
         //turn invisible 
         TurnInvisble();

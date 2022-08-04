@@ -25,7 +25,7 @@ public class WallDamager : MonoBehaviour
             {
                 if (blockHealth != null)
                 {
-                    blockHealth.TakeDamage(25);
+                    blockHealth.TakeDamage(15);
 
                 }
 

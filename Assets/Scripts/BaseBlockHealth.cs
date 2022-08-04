@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class BaseBlockHealth : Health
 {
-
+    private bool deathSoundTriggerPlayed; //to make sure it only plays once
     private void Start()
     {
-        maxHealth = 250;
+        maxHealth = 120;
         health = maxHealth;
+        deathSoundTriggerPlayed = false;    
             
      }
 
     public override void TakeDamage(int dmg)
     {
         base.TakeDamage(dmg);
-        if (health < maxHealth / 10)
+        if (health < maxHealth / 5)
         {
-            //play broken wood sound to tell player its about to die 
+            if(!deathSoundTriggerPlayed)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Woodbreak/Woodbreak", transform.position);
+
+                deathSoundTriggerPlayed = true;
+            }
         }
     }
     public override void Die()

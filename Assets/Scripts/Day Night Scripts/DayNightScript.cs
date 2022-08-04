@@ -128,13 +128,14 @@ public class DayNightScript : MonoBehaviour
 
         beginNight?.Invoke();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI + Stingers/Night Event Stinger", transform.position);
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Light Turning/LightTurning", transform.position);
     }
 
     public void PostBeginDayEvent()
     {
         beginDay?.Invoke();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI + Stingers/Day Event Stinger", transform.position);
+        
 
     }
     public void DisplayTime() // Shows time and day in ui

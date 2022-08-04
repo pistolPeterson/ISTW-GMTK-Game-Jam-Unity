@@ -7,7 +7,7 @@ public class BranchTrap : Trap
     // Start is called before the first frame update
     void Start()
     {
-        
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Branch/BranchUse", transform.position);
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class BranchTrap : Trap
             if (Random.Range(0, 500) % 2 == 0)
                 attemptedBaseEnemy.Die();
 
-
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Branch/BranchUse", transform.position);
             Destroy(this.gameObject);
         }
 

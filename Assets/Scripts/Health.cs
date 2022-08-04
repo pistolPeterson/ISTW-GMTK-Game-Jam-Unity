@@ -23,7 +23,6 @@ public class Health : MonoBehaviour
         health -= dmg;
         if (health <= 0)
         {
-            Debug.Log("this kid dead dead");
             Die();             
         }
     }
