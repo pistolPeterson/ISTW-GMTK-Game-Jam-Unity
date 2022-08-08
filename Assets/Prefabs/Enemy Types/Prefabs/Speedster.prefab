@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5872105882849676689}
   - component: {fileID: 5872105882849676694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5872105883070832248}
   - component: {fileID: 5872105883070832252}
   - component: {fileID: 8292448634071557484}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Speedster
   m_TagString: Enemy
   m_Icon: {fileID: 0}

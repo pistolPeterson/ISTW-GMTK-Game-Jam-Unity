@@ -176,6 +176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone C
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -219,6 +223,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635375, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
@@ -394,7 +402,7 @@ Transform:
   - {fileID: 1922336483}
   - {fileID: 1451038478}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &74205713
 SpriteRenderer:
@@ -1081,7 +1089,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210034825
 GameObject:
@@ -1198,6 +1206,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220178543}
   m_CullTransparentMesh: 1
+--- !u!1001 &229422587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1464140125396440874, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: showGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685052393756375710, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: showGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575626, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_Name
+      value: 'Normal Enemy '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.443808
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.574451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351437660636575629, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 573abb7a7d8be70428708878c2caf194, type: 3}
 --- !u!1 &245664219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1378,7 @@ Transform:
   - {fileID: 612872046}
   - {fileID: 337603315}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &298375726
 GameObject:
@@ -2331,7 +2404,7 @@ Transform:
   - {fileID: 848556963}
   - {fileID: 493559232}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &429077326
 MonoBehaviour:
@@ -2484,6 +2557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone A
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2528,6 +2605,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
 --- !u!1001 &492910765
@@ -2540,6 +2621,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_Name
       value: PF Props Gravestone B (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_RootOrder
@@ -2584,6 +2669,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
@@ -2735,7 +2824,7 @@ RectTransform:
   - {fileID: 745096446}
   - {fileID: 576619409}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3961,7 +4050,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630768465
 GameObject:
@@ -3997,7 +4086,7 @@ Transform:
   - {fileID: 1470043751}
   - {fileID: 2075177672}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &630768467
 MonoBehaviour:
@@ -5643,7 +5732,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &953730572
 GameObject:
@@ -5761,7 +5850,7 @@ Transform:
   - {fileID: 656620276}
   - {fileID: 1707378002}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &972762661
 GameObject:
@@ -6245,6 +6334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone B
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6288,6 +6381,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
@@ -6703,7 +6800,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1120092001
 MonoBehaviour:
@@ -7861,7 +7958,7 @@ Transform:
   - {fileID: 584950312}
   - {fileID: 953730573}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1296283917
 GameObject:
@@ -74470,6 +74567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone C (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -74513,6 +74614,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635375, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
@@ -75045,7 +75150,7 @@ Transform:
   m_Children:
   - {fileID: 1296283918}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593480473
 GameObject:
@@ -76291,7 +76396,7 @@ Transform:
   - {fileID: 972762662}
   - {fileID: 587289697}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895913339
 GameObject:
@@ -76496,7 +76601,7 @@ Transform:
   - {fileID: 1975161845}
   - {fileID: 681695611}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922336482
 GameObject:
@@ -76851,7 +76956,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1952586722
 GameObject:
@@ -77205,7 +77310,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1977412100
 MonoBehaviour:
@@ -77238,6 +77343,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_Name
       value: PF Props Gravestone B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_RootOrder
@@ -77282,6 +77391,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
@@ -77524,7 +77637,7 @@ Transform:
   - {fileID: 127730073}
   - {fileID: 2019857071}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2075177670
 GameObject:
@@ -77600,7 +77713,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2075816600
 MonoBehaviour:
@@ -77714,7 +77827,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2108005337
 MonoBehaviour:
@@ -77768,6 +77881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Gravestone A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -77811,6 +77928,10 @@ PrefabInstance:
     - target: {fileID: 2055102311959635375, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
