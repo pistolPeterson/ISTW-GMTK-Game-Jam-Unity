@@ -79,18 +79,27 @@ public class BaseEnemy : MonoBehaviour
         rb.rotation = angle;
         direction.Normalize();
         if(isPlayer)
-        movement = direction;
+        {
+            movement = direction;
+        }
         else
             fakeMovement = direction;
     }
 
+    public void GiveNewMovementFromAI(Vector2 newVector2)
+    {
+        movement = newVector2;
+    }
 
     private void FixedUpdate()
     {
         time += Time.deltaTime; 
 
         if(isInChaseRange && !isInAttackRange)
-              MoveCharacter(movement);
+        {
+             MoveCharacter(movement);
+        }
+
 
         if (isInAttackRange)
         {
@@ -113,7 +122,7 @@ public class BaseEnemy : MonoBehaviour
            
     }
 
-    void MoveCharacter(Vector2 direction)
+    public void MoveCharacter(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (moveSpeed * Time.deltaTime * direction));
     }
