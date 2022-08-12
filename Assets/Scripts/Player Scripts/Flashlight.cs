@@ -17,13 +17,15 @@ public class Flashlight : MonoBehaviour
     private float time;
     private float flashLightRechargeRate;
    
-
+    private ProgressBar progressBar;
    
 
     private DayNightStateMachine dnsm;
     private PlayerHealth pm; 
     private void Start()
     {
+        progressBar = FindObjectOfType<ProgressBar>();
+        progressBar.BarValue = 100;
         flashlightImgHolder.sprite = flashOff;
         flashlight.SetActive(false);
         isOn = false;
@@ -60,12 +62,12 @@ public class Flashlight : MonoBehaviour
         }
 
 
-        flashlightText.text =  flashlightPower + "% ";
-
+       // flashlightText.text =  flashlightPower + "% ";
+        progressBar.BarValue = flashlightPower;
         if (flashlightPower <= 0)
         {
             flashlight.SetActive(false);
-            flashlightText.text = "0% ";
+           // flashlightText.text = "0% ";
             flashlightImgHolder.sprite = flashOff;
         }
        

@@ -56,7 +56,6 @@ public class EnemyAI : MonoBehaviour
         }
         OnMovementInput?.Invoke(movementInput);
 
-        Debug.Log(movementInput);
     }
 
 

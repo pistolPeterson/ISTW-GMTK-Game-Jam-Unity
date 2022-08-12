@@ -135,7 +135,7 @@ public class BaseEnemy : MonoBehaviour
     public void Die()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Enemy/Generic Enemy Death/Enemy Death", transform.position);
-
+        AchievementManager.instance.AddAchievementProgress("Killer", 1.0f);
         Destroy(gameObject);
     }
 }
