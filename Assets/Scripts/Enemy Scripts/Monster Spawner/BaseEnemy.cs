@@ -24,21 +24,22 @@ public class BaseEnemy : MonoBehaviour
     private bool isInChaseRange;
     private bool isInAttackRange;
 
-    private float time; 
+    private float time;
 
     public EnemySO enemySO;//The scriptable object that makes it easier to change values later on
 
     public int damage;
-    
+
+    public bool isSpeed = false; 
 
     private GameObject[] fakeTargets;
     private GameObject oneFakeTarget;
 
     public static event Action OnEnemyAttck;
 
-    [SerializeField]private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
     public AudioClip[] attackClips;
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,14 +47,14 @@ public class BaseEnemy : MonoBehaviour
         oneFakeTarget = fakeTargets[UnityEngine.Random.Range(0, fakeTargets.Length)];
 
 
-        time = 0; 
-        playerLocation = GameObject.FindGameObjectWithTag("Player").transform; 
+        time = 0;
+        playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
 
         //enemy SO stats 
         moveSpeed = enemySO.chaseSpeed;
         idleSpeed = enemySO.idleSpeed;
-        chaseRadius = enemySO.chaseRadius;  
+        chaseRadius = enemySO.chaseRadius;
 
     }
 
@@ -78,7 +79,7 @@ public class BaseEnemy : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
         direction.Normalize();
-        if(isPlayer)
+        if (isPlayer)
         {
             movement = direction;
         }
@@ -93,33 +94,41 @@ public class BaseEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        time += Time.deltaTime; 
+        time += Time.deltaTime;
 
-        if(isInChaseRange && !isInAttackRange)
+        if (isInChaseRange && !isInAttackRange)
         {
-             MoveCharacter(movement);
+            MoveCharacter(movement);
         }
 
 
         if (isInAttackRange)
         {
             rb.velocity = Vector2.zero;
-            if(time > ((1/enemySO.attackSpeed) * 5))
+            if (time > ((1 / enemySO.attackSpeed) * 5))
             {
-               // audioSource.PlayOneShot(attackClips[Random.Range(0, attackClips.Length)]);
+                // audioSource.PlayOneShot(attackClips[Random.Range(0, attackClips.Length)]);
+                if(isSpeed)
+                    SpecialAbility();
                 OnEnemyAttck?.Invoke();
-                FindObjectOfType<PlayerHealth>().TakeDamage(damage);            
+                FindObjectOfType<PlayerHealth>().TakeDamage(damage);
                 time = 0;
             }
-           
+
         }
 
         if (!isInChaseRange && !isInAttackRange)
-        {        
+        {
             MoveCharacterSlow(fakeMovement);
             time = 0;
         }
-           
+
+    }
+
+    public virtual void SpecialAbility()
+    {
+        var speedAbility = GetComponent<SpeedEnemy>();
+        speedAbility.SpecialAbility();
     }
 
     public void MoveCharacter(Vector2 direction)
@@ -128,14 +137,13 @@ public class BaseEnemy : MonoBehaviour
     }
 
     void MoveCharacterSlow(Vector2 direction)
-    {     
+    {
         rb.MovePosition((Vector2)transform.position + ((idleSpeed) * Time.deltaTime * direction));
     }
 
     public void Die()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Enemy/Generic Enemy Death/Enemy Death", transform.position);
-        AchievementManager.instance.AddAchievementProgress("Killer", 1.0f);
         Destroy(gameObject);
     }
 }

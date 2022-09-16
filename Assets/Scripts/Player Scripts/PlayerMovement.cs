@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField][Range(1.0f, 12.5f)] private float playerSpeed;
     [SerializeField] [Range(248f, 512f)] private float rotSpeed;
+    private float origSpeed;
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool isFreeze;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
         isFreeze = false;
         rb = GetComponent<Rigidbody2D>();
         animator?.SetTrigger("stop Trigger");
+        origSpeed = playerSpeed;
     }
 
     private void Update()
@@ -44,7 +46,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void SetPlayerSpeed(float newSpeed)
+    {
+        playerSpeed = newSpeed;
+    }
 
+    public void SetOrigSpeed()
+    {
+        playerSpeed = origSpeed;
+    }
     public void FreezePlayer()
     {
         isFreeze = true;

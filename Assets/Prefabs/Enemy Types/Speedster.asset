@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a41aa58ee116f4b89688d3e2034e1c, type: 3}
   m_Name: Speedster
   m_EditorClassIdentifier: 
-  chaseSpeed: 4.26
-  idleSpeed: 1.1
-  health: 58
-  attackAmount: 32
-  attackSpeed: 7.96
-  chaseRadius: 13.2
+  chaseSpeed: 4.9
+  idleSpeed: 1.723
+  health: 53
+  attackAmount: 17
+  attackSpeed: 6.98
+  chaseRadius: 10.17
